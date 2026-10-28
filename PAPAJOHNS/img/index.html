@@ -1,68 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>파파존스리뉴얼포트폴리오</title>
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../npm/Swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="../font/CSS/pretendardvariable.css">
+    <title>파파존스 리뉴얼 포트폴리오</title>
+
+    <link rel="stylesheet" href="../../font/css/default.css">
+    <link rel="stylesheet" href="../../npm/Swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <script src="../npm/Swiper/swiper-bundle.min.js"></script>
+    <script src="../../npm/Swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
     <div id="wrap">
         <header>제목공간</header>
         <main>
             <div class="hero-sec">
-                <!-- Slider main container -->
                 <div class="visual swiper">
-                    <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                        <!-- Slides -->
                         <div class="swiper-slide">
-                            <img src="img/260922_americancombo_main.jpg" alt="브라우니" class="pc">
-                            <img src="img/m img 01.jpg" alt="모바일브라우니" class="mo">
+                            <img src="260922_americancombo_main.jpg" alt="아메리칸 콤보 프로모션" class="pc">
+                            <img src="m.img-01.jpg" alt="모바일 브라우니 프로모션" class="mo">
                         </div>
                         <div class="swiper-slide">
-                            <img src="img/261002_buldak_telecom_main.jpg" alt="불닭" class="pc">
-                            <img src="img/m img 02.jpg" alt="모바일불닭" class="mo">
+                            <img src="261002_buldak_telecom_main.jpg" alt="불닭 프로모션" class="pc">
+                            <img src="m.img-02.jpg" alt="모바일 불닭 프로모션" class="mo">
                         </div>
                     </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
 
-                    <!-- If we need navigation buttons -->
+                    <div class="swiper-pagination"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
-
-                    <!-- If we need scrollbar -->
                     <div class="swiper-scrollbar"></div>
                 </div>
             </div>
         </main>
         <footer>&copy;</footer>
     </div>
+
     <script>
         const swiper = new Swiper('.hero-sec .swiper', {
-            // Optional parameters
             direction: 'horizontal',
             loop: true,
-
-            // If we need pagination
             pagination: {
                 el: '.visual .swiper-pagination',
+                type: 'fraction',
             },
-
-            // Navigation arrows
             navigation: {
                 nextEl: '.visual .swiper-button-next',
                 prevEl: '.visual .swiper-button-prev',
             },
-
-            // And if we need scrollbar
             scrollbar: {
                 el: '.visual .swiper-scrollbar',
+                draggable: true,
             },
         });
     </script>
