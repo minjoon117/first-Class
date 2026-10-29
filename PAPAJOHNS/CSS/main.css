@@ -1,62 +1,185 @@
+@font-face {
+    font-family: "Pretendard";
+    src: url("../../font/PretendardVariable.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+:root {
+    /* 임시 기본 컬러: 피그마 Variables의 HEX 확인 후 교체 */
+    --color-brand-red: #D71920;
+    --color-brand-green: #1B4D2B;
+    --color-text: #222222;
+    --color-white: #FFFFFF;
+    --color-control-bg: rgba(20, 20, 20, 0.65);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
 body {
-    background-color: yellow;
-    font-family: "Pretendard Variable";
+    margin: 0;
+    min-height: 100%;
 }
 
-.t-box {
-    background-color: tomato;
-    padding: 50px;
-    display: flex;
-    gap: 20px;
-}
-.scale01 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-    transform: scale(0.5);
-}
-.scale02 {
-    width: 100px;
-    height: 100px;
-    background-color: darkorchid;
-    transform: scale(0.5);
+body {
+    font-family: "Pretendard", sans-serif;
+    color: var(--color-text);
 }
 
-/*
-scale사이즈를 키ㅜ거나 줄일 때 사용하는데 자식요소까지 적용
-기본값은 1
-자기위치에서 사이즈가 커지거나 줄어들기때문에 정렬에 영향을 받지 않습니다.
-*/
-
-/*
-    scale: 크기를 조절
-    translate: 이동거리를 조절
-    rotate: 회전각도를 조절
-    skew: 평행사변형형태의 모양처럼 틀어지는 걸 조절
-    2D와 3D가 있음
-*/
-.b-slider {
-    background-color: red;
-    padding: 20px 0;
-}
-.b-slider .swiper-slide {
-    /* background-color: aquamarine; */
-    /* display: flex;
-     swiper-slide에 적용가능
-    */
-}
-    
-    
-.b-slider .img-box {
-    transform: scale(0.9);
-    transform-origin: bottom;
-}
-.b-slider .swiper-slide-active .img-box {
-    border: 3px solid lawngreen;
-    border-radius: 20px;
-    transform: scale(1);
+button {
+    font: inherit;
 }
 
-.b-slider img {
+.hero {
     width: 100%;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 1;
+    overflow: hidden;
+    background: var(--color-brand-green);
+}
+
+.hero-slides,
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.45s ease;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 좌우 이동 버튼 */
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background: var(--color-white);
+    color: var(--color-text);
+    font-size: 21px;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hero-arrow:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+.hero-prev {
+    left: 7.5%;
+}
+
+.hero-next {
+    right: 7.5%;
+    background: #222222;
+    color: var(--color-white);
+}
+
+/* 하단 페이지 번호와 일시정지 */
+.hero-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--color-control-bg);
+    color: var(--color-white);
+    font-size: 14px;
+    line-height: 1.2;
+    transform: translateX(-50%);
+}
+
+.hero-page {
+    min-width: 30px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.hero-toggle {
+    display: grid;
+    place-items: center;
+    min-width: 18px;
+    min-height: 18px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-white);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.hero-arrow:focus-visible,
+.hero-toggle:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .hero-slider {
+        aspect-ratio: 4 / 1;
+        min-height: 180px;
+    }
+
+    .hero-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 17px;
+    }
+
+    .hero-prev {
+        left: 3%;
+    }
+
+    .hero-next {
+        right: 3%;
+    }
+
+    .hero-controls {
+        bottom: 5%;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide,
+    .hero-arrow {
+        transition: none;
+    }
 }
