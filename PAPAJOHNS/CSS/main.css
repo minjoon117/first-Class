@@ -299,3 +299,28 @@ button {
         display: block;
     }
 }
+
+
+/* Google Material Symbols - header tool icons */
+.header-tools .material-symbols-outlined {
+    display: block;
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.header-tools a {
+    width: 24px;
+    height: 28px;
+}
