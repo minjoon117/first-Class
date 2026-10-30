@@ -324,14 +324,14 @@ button {
     width: 24px;
     height: 28px;
 }
-/* ===== 드롭다운 메뉴 ===== */
+* ===== 드롭다운 메뉴 ===== */
 .nav-item {
     position: relative;
 }
 
 .nav-item > a {
     display: block;
-    padding: 26px 0; /* 헤더 높이에 맞게 조정 */
+    padding: 26px 0;
 }
 
 /* 드롭다운 기본 상태 (숨김) */
@@ -362,7 +362,7 @@ button {
     pointer-events: auto;
 }
 
-/* 드롭다운과 메뉴 사이 빈 공간 메우기 (호버가 끊기지 않게) */
+/* 드롭다운과 메뉴 사이 빈 공간 메우기 */
 .nav-item::after {
     content: "";
     position: absolute;
@@ -372,13 +372,14 @@ button {
     height: 12px;
 }
 
-/* 드롭다운 안 링크 */
+/* 드롭다운 안 링크 - 중앙 정렬 */
 .dropdown li a {
     display: block;
     padding: 10px 22px;
     font-size: 14px;
     font-weight: 500;
     color: #333;
+    text-align: center;          /* ← 중앙 정렬 */
     white-space: nowrap;
     transition: background 0.15s, color 0.15s;
 }
@@ -388,7 +389,7 @@ button {
     color: var(--color-brand-red);
 }
 
-/* 우측 아이콘(마이페이지, 언어) 드롭다운도 동일하게 적용 */
+/* 우측 아이콘(마이페이지, 언어) 드롭다운 */
 .header-tools .nav-item {
     position: relative;
 }
@@ -398,7 +399,14 @@ button {
     min-width: 150px;
 }
 
-/* 모바일에서는 드롭다운 숨김 (필요시 나중에 별도 처리) */
+/* 장바구니 아이콘 원래 위치 유지 */
+.header-tools > a[href="#cart"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 모바일에서는 드롭다운 숨김 */
 @media (max-width: 680px) {
     .dropdown {
         display: none;
