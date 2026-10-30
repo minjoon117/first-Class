@@ -324,3 +324,83 @@ button {
     width: 24px;
     height: 28px;
 }
+/* ===== 드롭다운 메뉴 ===== */
+.nav-item {
+    position: relative;
+}
+
+.nav-item > a {
+    display: block;
+    padding: 26px 0; /* 헤더 높이에 맞게 조정 */
+}
+
+/* 드롭다운 기본 상태 (숨김) */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    min-width: 160px;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* 호버 시 나타나기 */
+.nav-item:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* 드롭다운과 메뉴 사이 빈 공간 메우기 (호버가 끊기지 않게) */
+.nav-item::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 12px;
+}
+
+/* 드롭다운 안 링크 */
+.dropdown li a {
+    display: block;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+}
+
+.dropdown li a:hover {
+    background: #f8f8f8;
+    color: var(--color-brand-red);
+}
+
+/* 우측 아이콘(마이페이지, 언어) 드롭다운도 동일하게 적용 */
+.header-tools .nav-item {
+    position: relative;
+}
+
+.header-tools .dropdown {
+    left: 50%;
+    min-width: 150px;
+}
+
+/* 모바일에서는 드롭다운 숨김 (필요시 나중에 별도 처리) */
+@media (max-width: 680px) {
+    .dropdown {
+        display: none;
+    }
+}
