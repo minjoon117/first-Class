@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>파파존스 리뉴얼</title>
-    <!-- 파파존스 전용 스타일과 슬라이더 스크립트 -->
     <link rel="stylesheet" href="./CSS/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
     <script src="./main.js" defer></script>
 </head>
 <body>
+    <!-- 헤더 -->
     <header class="site-header">
         <a class="brand-logo" href="./index.html" aria-label="파파존스 홈">PAPA JOHNS</a>
 
         <nav class="main-nav" aria-label="주 메뉴">
-            <!-- 메뉴 -->
             <div class="nav-item">
                 <a href="#menu">메뉴</a>
                 <ul class="dropdown">
@@ -26,7 +25,6 @@
                 </ul>
             </div>
 
-            <!-- 이벤트·할인 -->
             <div class="nav-item">
                 <a href="#events">이벤트·할인</a>
                 <ul class="dropdown">
@@ -37,17 +35,14 @@
                 </ul>
             </div>
 
-            <!-- E-쿠폰주문 (드롭다운 없음) -->
             <div class="nav-item">
                 <a href="#coupon">E-쿠폰주문</a>
             </div>
 
-            <!-- 매장찾기 (드롭다운 없음) -->
             <div class="nav-item">
                 <a href="#store">매장찾기</a>
             </div>
 
-            <!-- 고객센터 -->
             <div class="nav-item">
                 <a href="#customer">고객센터</a>
                 <ul class="dropdown">
@@ -57,7 +52,6 @@
                 </ul>
             </div>
 
-            <!-- 회사소개 -->
             <div class="nav-item">
                 <a href="#company">회사소개</a>
                 <ul class="dropdown">
@@ -69,11 +63,10 @@
             </div>
         </nav>
 
-        <div class="header-tools" aria-label="바로가기">
-            <!-- 마이페이지 -->
+        <div class="header-tools">
             <div class="nav-item tools-item">
                 <a href="#mypage" aria-label="마이페이지" title="마이페이지">
-                    <span class="material-symbols-outlined" aria-hidden="true">person</span>
+                    <span class="material-symbols-outlined">person</span>
                 </a>
                 <ul class="dropdown">
                     <li><a href="#mypage-membership">멤버십</a></li>
@@ -85,10 +78,9 @@
                 </ul>
             </div>
 
-            <!-- 언어 선택 -->
             <div class="nav-item tools-item">
                 <a href="#language" aria-label="언어 선택" title="언어 선택">
-                    <span class="material-symbols-outlined" aria-hidden="true">language</span>
+                    <span class="material-symbols-outlined">language</span>
                 </a>
                 <ul class="dropdown">
                     <li><a href="#lang-ko">한국어</a></li>
@@ -100,7 +92,7 @@
             </div>
 
             <a href="#cart" aria-label="장바구니" title="장바구니">
-                <span class="material-symbols-outlined" aria-hidden="true">shopping_cart</span>
+                <span class="material-symbols-outlined">shopping_cart</span>
             </a>
         </div>
 
@@ -110,6 +102,7 @@
     </header>
 
     <main>
+        <!-- 히어로 슬라이더 -->
         <section class="hero" aria-label="파파존스 프로모션">
             <div class="hero-slider">
                 <div class="hero-slides">
@@ -134,7 +127,7 @@
                     <span aria-hidden="true">&#10095;</span>
                 </button>
 
-                <div class="hero-controls" aria-label="배너 재생 설정">
+                <div class="hero-controls">
                     <span class="hero-page" aria-live="polite">1 / 4</span>
                     <button class="hero-toggle" type="button" aria-label="자동 재생 일시정지">
                         <span aria-hidden="true">&#8545;</span>
@@ -142,6 +135,191 @@
                 </div>
             </div>
         </section>
+
+        <!-- 배달 / 포장 / 픽업 -->
+        <section class="service-icons">
+            <div class="service-item">
+                <div class="service-icon">🛵</div>
+                <span>배달</span>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">📦</div>
+                <span>포장</span>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🏪</div>
+                <span>픽업</span>
+            </div>
+        </section>
+
+        <!-- BEST MENU TOP5 -->
+        <section class="section best-menu">
+            <div class="section-header">
+                <h2>파파존스 <strong>BEST MENU TOP5</strong></h2>
+                <a href="#menu" class="more-link">더보기 →</a>
+            </div>
+            <div class="menu-grid">
+                <article class="menu-card">
+                    <div class="menu-img">
+                        <img src="https://via.placeholder.com/280x180?text=Pizza+1" alt="슈퍼파파스">
+                    </div>
+                    <div class="menu-info">
+                        <h3>슈퍼파파스</h3>
+                        <p class="price">23,900원~</p>
+                        <button class="order-btn">ORDER</button>
+                    </div>
+                </article>
+                <article class="menu-card">
+                    <div class="menu-img">
+                        <img src="https://via.placeholder.com/280x180?text=Pizza+2" alt="존스 페이버릿">
+                    </div>
+                    <div class="menu-info">
+                        <h3>존스 페이버릿</h3>
+                        <p class="price">25,900원~</p>
+                        <button class="order-btn">ORDER</button>
+                    </div>
+                </article>
+                <article class="menu-card">
+                    <div class="menu-img">
+                        <img src="https://via.placeholder.com/280x180?text=Pizza+3" alt="페퍼로니">
+                    </div>
+                    <div class="menu-info">
+                        <h3>페퍼로니</h3>
+                        <p class="price">21,900원~</p>
+                        <button class="order-btn">ORDER</button>
+                    </div>
+                </article>
+                <article class="menu-card">
+                    <div class="menu-img">
+                        <img src="https://via.placeholder.com/280x180?text=Pizza+4" alt="슈퍼 디럭스">
+                    </div>
+                    <div class="menu-info">
+                        <h3>슈퍼 디럭스</h3>
+                        <p class="price">26,900원~</p>
+                        <button class="order-btn">ORDER</button>
+                    </div>
+                </article>
+                <article class="menu-card">
+                    <div class="menu-img">
+                        <img src="https://via.placeholder.com/280x180?text=Pizza+5" alt="치킨 리치">
+                    </div>
+                    <div class="menu-info">
+                        <h3>치킨 리치</h3>
+                        <p class="price">27,900원~</p>
+                        <button class="order-btn">ORDER</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 이벤트 -->
+        <section class="section events">
+            <div class="section-header">
+                <h2>이벤트</h2>
+                <a href="#events" class="more-link">더보기 →</a>
+            </div>
+            <div class="event-grid">
+                <article class="event-card">
+                    <img src="https://via.placeholder.com/360x200?text=Event+1" alt="이벤트 1">
+                    <div class="event-info">
+                        <h3>통신사 할인 이벤트</h3>
+                        <p>최대 40% 할인 혜택</p>
+                    </div>
+                </article>
+                <article class="event-card">
+                    <img src="https://via.placeholder.com/360x200?text=Event+2" alt="이벤트 2">
+                    <div class="event-info">
+                        <h3>하나카드 제휴 이벤트</h3>
+                        <p>LAST 10 DAYS 특별 할인</p>
+                    </div>
+                </article>
+                <article class="event-card">
+                    <img src="https://via.placeholder.com/360x200?text=Event+3" alt="이벤트 3">
+                    <div class="event-info">
+                        <h3>문화 이벤트</h3>
+                        <p>파파존스와 함께하는 특별한 경험</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 매장찾기 -->
+        <section class="section store-finder">
+            <div class="store-content">
+                <h2>매장찾기</h2>
+                <p>가까운 파파존스 매장을 찾아보세요</p>
+                <div class="store-search">
+                    <input type="text" placeholder="지역명 또는 매장명 검색">
+                    <button type="button">검색</button>
+                </div>
+                <a href="#store" class="store-btn">매장 전체보기</a>
+            </div>
+        </section>
+
+        <!-- 파파존스 APP -->
+        <section class="section app-download">
+            <div class="app-content">
+                <div class="app-text">
+                    <h2>파파존스 APP</h2>
+                    <p>앱에서만 누릴 수 있는 특별한 혜택과<br>간편한 주문 서비스를 경험하세요</p>
+                    <div class="app-buttons">
+                        <a href="#" class="app-btn">
+                            <img src="https://via.placeholder.com/140x42?text=App+Store" alt="App Store">
+                        </a>
+                        <a href="#" class="app-btn">
+                            <img src="https://via.placeholder.com/140x42?text=Google+Play" alt="Google Play">
+                        </a>
+                    </div>
+                </div>
+                <div class="app-phone">
+                    <img src="https://via.placeholder.com/220x400?text=App+Mockup" alt="파파존스 앱 화면">
+                </div>
+            </div>
+        </section>
+
+        <!-- 고객후기 -->
+        <section class="section reviews">
+            <div class="section-header">
+                <h2>고객후기</h2>
+                <a href="#reviews" class="more-link">더보기 →</a>
+            </div>
+            <div class="review-grid">
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">“항상 맛있고 배달도 빨라요. 가족이 다 좋아합니다!”</p>
+                    <p class="review-author">김*수 님</p>
+                </article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">“하프앤하프 조합이 최고예요. 다음에도 또 시킬게요.”</p>
+                    <p class="review-author">이*영 님</p>
+                </article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★☆</div>
+                    <p class="review-text">“사이드 메뉴도 맛있고 피자도 정성스러워요.”</p>
+                    <p class="review-author">박*호 님</p>
+                </article>
+            </div>
+        </section>
     </main>
+
+    <!-- 푸터 -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-logo">PAPA JOHNS</div>
+            <div class="footer-info">
+                <p>㈜파파존스코리아 | 대표이사 : 홍길동</p>
+                <p>사업자등록번호 : 123-45-67890 | 통신판매업신고 : 제2024-서울강남-1234호</p>
+                <p>주소 : 서울특별시 강남구 테헤란로 123 | 고객센터 : 1544-0000</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">위치기반서비스 이용약관</a>
+                <a href="#">고객센터</a>
+            </div>
+            <p class="copyright">© PAPA JOHN'S KOREA. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
 </body>
 </html>
