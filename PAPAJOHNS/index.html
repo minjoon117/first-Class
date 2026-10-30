@@ -14,21 +14,91 @@
         <a class="brand-logo" href="./index.html" aria-label="파파존스 홈">PAPA JOHNS</a>
 
         <nav class="main-nav" aria-label="주 메뉴">
-            <a href="#menu">메뉴</a>
-            <a href="#events">이벤트·할인</a>
-            <a href="#coupon">E-쿠폰주문</a>
-            <a href="#store">매장찾기</a>
-            <a href="#customer">고객센터</a>
-            <a href="#company">회사소개</a>
+            <!-- 메뉴 -->
+            <div class="nav-item">
+                <a href="#menu">메뉴</a>
+                <ul class="dropdown">
+                    <li><a href="#menu-pizza">피자</a></li>
+                    <li><a href="#menu-promotion">프로모션</a></li>
+                    <li><a href="#menu-half">하프앤하프</a></li>
+                    <li><a href="#menu-side">사이드</a></li>
+                    <li><a href="#menu-drink">음료/소스</a></li>
+                </ul>
+            </div>
+
+            <!-- 이벤트·할인 -->
+            <div class="nav-item">
+                <a href="#events">이벤트·할인</a>
+                <ul class="dropdown">
+                    <li><a href="#events-ongoing">진행중 이벤트</a></li>
+                    <li><a href="#events-partner">제휴 할인</a></li>
+                    <li><a href="#events-past">지난 이벤트</a></li>
+                    <li><a href="#events-class">피자 교실</a></li>
+                </ul>
+            </div>
+
+            <!-- E-쿠폰주문 (드롭다운 없음) -->
+            <div class="nav-item">
+                <a href="#coupon">E-쿠폰주문</a>
+            </div>
+
+            <!-- 매장찾기 (드롭다운 없음) -->
+            <div class="nav-item">
+                <a href="#store">매장찾기</a>
+            </div>
+
+            <!-- 고객센터 -->
+            <div class="nav-item">
+                <a href="#customer">고객센터</a>
+                <ul class="dropdown">
+                    <li><a href="#customer-notice">공지사항</a></li>
+                    <li><a href="#customer-closed">휴업 안내</a></li>
+                    <li><a href="#customer-qa">Q&A</a></li>
+                </ul>
+            </div>
+
+            <!-- 회사소개 -->
+            <div class="nav-item">
+                <a href="#company">회사소개</a>
+                <ul class="dropdown">
+                    <li><a href="#company-story">파파존스 이야기</a></li>
+                    <li><a href="#company-pr">홍보관</a></li>
+                    <li><a href="#company-recruit">채용 안내</a></li>
+                    <li><a href="#company-franchise">가맹점 모집</a></li>
+                </ul>
+            </div>
         </nav>
 
         <div class="header-tools" aria-label="바로가기">
-            <a href="#mypage" aria-label="마이페이지" title="마이페이지">
-                <span class="material-symbols-outlined" aria-hidden="true">person</span>
-            </a>
-            <a href="#language" aria-label="언어 선택" title="언어 선택">
-                <span class="material-symbols-outlined" aria-hidden="true">language</span>
-            </a>
+            <!-- 마이페이지 -->
+            <div class="nav-item tools-item">
+                <a href="#mypage" aria-label="마이페이지" title="마이페이지">
+                    <span class="material-symbols-outlined" aria-hidden="true">person</span>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="#mypage-membership">멤버십</a></li>
+                    <li><a href="#mypage-coupon">쿠폰함</a></li>
+                    <li><a href="#mypage-reward">파파리워드</a></li>
+                    <li><a href="#mypage-event">참여 가능 이벤트</a></li>
+                    <li><a href="#mypage-address">주소지 관리</a></li>
+                    <li><a href="#mypage-info">나의 정보 변경</a></li>
+                </ul>
+            </div>
+
+            <!-- 언어 선택 -->
+            <div class="nav-item tools-item">
+                <a href="#language" aria-label="언어 선택" title="언어 선택">
+                    <span class="material-symbols-outlined" aria-hidden="true">language</span>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="#lang-ko">한국어</a></li>
+                    <li><a href="#lang-en">English</a></li>
+                    <li><a href="#lang-ja">日本語</a></li>
+                    <li><a href="#lang-zh-cn">中文(简体)</a></li>
+                    <li><a href="#lang-zh-tw">中文(繁體)</a></li>
+                </ul>
+            </div>
+
             <a href="#cart" aria-label="장바구니" title="장바구니">
                 <span class="material-symbols-outlined" aria-hidden="true">shopping_cart</span>
             </a>
