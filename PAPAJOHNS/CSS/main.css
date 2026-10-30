@@ -324,7 +324,7 @@ button {
     width: 24px;
     height: 28px;
 }
-* ===== 드롭다운 메뉴 ===== */
+/* ===== 드롭다운 메뉴 ===== */
 .nav-item {
     position: relative;
 }
@@ -339,7 +339,7 @@ button {
     position: absolute;
     top: 100%;
     left: 50%;
-    min-width: 160px;
+    min-width: 140px;
     padding: 10px 0;
     margin: 0;
     list-style: none;
@@ -352,6 +352,7 @@ button {
     transition: all 0.2s ease;
     pointer-events: none;
     z-index: 100;
+    text-align: center; /* 글씨 중앙 정렬 */
 }
 
 /* 호버 시 나타나기 */
@@ -372,14 +373,13 @@ button {
     height: 12px;
 }
 
-/* 드롭다운 안 링크 - 중앙 정렬 */
+/* 드롭다운 안 링크 */
 .dropdown li a {
     display: block;
-    padding: 10px 22px;
+    padding: 10px 18px;
     font-size: 14px;
     font-weight: 500;
     color: #333;
-    text-align: center;          /* ← 중앙 정렬 */
     white-space: nowrap;
     transition: background 0.15s, color 0.15s;
 }
@@ -396,10 +396,10 @@ button {
 
 .header-tools .dropdown {
     left: 50%;
-    min-width: 150px;
+    min-width: 140px;
 }
 
-/* 장바구니 아이콘 원래 위치 유지 */
+/* 장바구니 위치 원래대로 유지 */
 .header-tools > a[href="#cart"] {
     display: inline-flex;
     align-items: center;
