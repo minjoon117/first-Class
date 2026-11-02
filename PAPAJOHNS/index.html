@@ -11,9 +11,9 @@
 <body>
     <!-- 헤더 -->
     <header class="site-header">
-        <a class="brand-logo" href="./index.html" aria-label="파파존스 홈">PAPA JOHNS</a>
+        <a class="brand-logo" href="./index.html">PAPA JOHNS</a>
 
-        <nav class="main-nav" aria-label="주 메뉴">
+        <nav class="main-nav">
             <div class="nav-item">
                 <a href="#menu">메뉴</a>
                 <ul class="dropdown">
@@ -24,7 +24,6 @@
                     <li><a href="#menu-drink">음료/소스</a></li>
                 </ul>
             </div>
-
             <div class="nav-item">
                 <a href="#events">이벤트·할인</a>
                 <ul class="dropdown">
@@ -34,15 +33,8 @@
                     <li><a href="#events-class">피자 교실</a></li>
                 </ul>
             </div>
-
-            <div class="nav-item">
-                <a href="#coupon">E-쿠폰주문</a>
-            </div>
-
-            <div class="nav-item">
-                <a href="#store">매장찾기</a>
-            </div>
-
+            <div class="nav-item"><a href="#coupon">E-쿠폰주문</a></div>
+            <div class="nav-item"><a href="#store">매장찾기</a></div>
             <div class="nav-item">
                 <a href="#customer">고객센터</a>
                 <ul class="dropdown">
@@ -51,7 +43,6 @@
                     <li><a href="#customer-qa">Q&A</a></li>
                 </ul>
             </div>
-
             <div class="nav-item">
                 <a href="#company">회사소개</a>
                 <ul class="dropdown">
@@ -64,8 +55,8 @@
         </nav>
 
         <div class="header-tools">
-            <div class="nav-item tools-item">
-                <a href="#mypage" aria-label="마이페이지" title="마이페이지">
+            <div class="nav-item">
+                <a href="#mypage" title="마이페이지">
                     <span class="material-symbols-outlined">person</span>
                 </a>
                 <ul class="dropdown">
@@ -77,9 +68,8 @@
                     <li><a href="#mypage-info">나의 정보 변경</a></li>
                 </ul>
             </div>
-
-            <div class="nav-item tools-item">
-                <a href="#language" aria-label="언어 선택" title="언어 선택">
+            <div class="nav-item">
+                <a href="#language" title="언어 선택">
                     <span class="material-symbols-outlined">language</span>
                 </a>
                 <ul class="dropdown">
@@ -90,82 +80,66 @@
                     <li><a href="#lang-zh-tw">中文(繁體)</a></li>
                 </ul>
             </div>
-
-            <a href="#cart" aria-label="장바구니" title="장바구니">
+            <a href="#cart" title="장바구니">
                 <span class="material-symbols-outlined">shopping_cart</span>
             </a>
         </div>
 
-        <button class="mobile-menu" type="button" aria-label="메뉴 열기">
+        <button class="mobile-menu" type="button">
             <span></span><span></span><span></span>
         </button>
     </header>
 
     <main>
-        <!-- 히어로 슬라이더 -->
-        <section class="hero" aria-label="파파존스 프로모션">
+        <!-- 히어로 -->
+        <section class="hero">
             <div class="hero-slider">
                 <div class="hero-slides">
                     <div class="hero-slide is-active">
-                        <img src="./img/260922_americancombo_main.jpg" alt="아메리칸 콤보 프로모션">
+                        <img src="./img/260922_americancombo_main.jpg" alt="아메리칸 콤보">
                     </div>
                     <div class="hero-slide">
-                        <img src="./img/261002_buldak_telecom_main.jpg" alt="불닭 까르보 치킨 통신사 할인 프로모션">
+                        <img src="./img/261002_buldak_telecom_main.jpg" alt="불닭 통신사 할인">
                     </div>
                     <div class="hero-slide">
-                        <img src="./img/261001_hanapick_last10days_main.jpg" alt="하나카드 LAST 10 DAYS 할인 프로모션">
+                        <img src="./img/261001_hanapick_last10days_main.jpg" alt="하나카드 할인">
                     </div>
                     <div class="hero-slide">
-                        <img src="./img/261016_twocities_main.jpg" alt="파파존스 문화 이벤트 프로모션">
+                        <img src="./img/261016_twocities_main.jpg" alt="문화 이벤트">
                     </div>
                 </div>
-
-                <button class="hero-arrow hero-prev" type="button" aria-label="이전 배너">
-                    <span aria-hidden="true">&#10094;</span>
-                </button>
-                <button class="hero-arrow hero-next" type="button" aria-label="다음 배너">
-                    <span aria-hidden="true">&#10095;</span>
-                </button>
-
+                <button class="hero-arrow hero-prev">&#10094;</button>
+                <button class="hero-arrow hero-next">&#10095;</button>
                 <div class="hero-controls">
-                    <span class="hero-page" aria-live="polite">1 / 4</span>
-                    <button class="hero-toggle" type="button" aria-label="자동 재생 일시정지">
-                        <span aria-hidden="true">&#8545;</span>
-                    </button>
+                    <span class="hero-page">1 / 4</span>
+                    <button class="hero-toggle">&#8545;</button>
                 </div>
             </div>
         </section>
 
-        <!-- 배달 / 포장 / 픽업 -->
+        <!-- 서비스 아이콘 -->
         <section class="service-icons">
             <div class="service-item">
-                <div class="service-icon">
-                    <span class="material-symbols-outlined">delivery_dining</span>
-                </div>
+                <div class="service-icon"><span class="material-symbols-outlined">delivery_dining</span></div>
                 <span>배달</span>
             </div>
             <div class="service-item">
-                <div class="service-icon">
-                    <span class="material-symbols-outlined">package_2</span>
-                </div>
+                <div class="service-icon"><span class="material-symbols-outlined">package_2</span></div>
                 <span>포장</span>
             </div>
             <div class="service-item">
-                <div class="service-icon">
-                    <span class="material-symbols-outlined">storefront</span>
-                </div>
+                <div class="service-icon"><span class="material-symbols-outlined">storefront</span></div>
                 <span>픽업</span>
             </div>
         </section>
 
-                <!-- BEST MENU TOP5 -->
+        <!-- BEST MENU TOP5 -->
         <section class="section best-menu">
             <div class="section-header">
                 <h2><span class="red-bar"></span>파파존스 <strong>BEST MENU TOP5</strong></h2>
-                <a href="#menu" class="more-link btn-view-all">전체보기</a>
+                <a href="#menu" class="btn-view-all">전체보기</a>
             </div>
             <div class="menu-grid">
-                <!-- BEST 01 -->
                 <article class="menu-card">
                     <div class="menu-badge">BEST 01</div>
                     <div class="menu-img">
@@ -181,7 +155,6 @@
                     </div>
                 </article>
 
-                <!-- BEST 02 -->
                 <article class="menu-card">
                     <div class="menu-badge">BEST 02</div>
                     <div class="menu-img">
@@ -197,7 +170,6 @@
                     </div>
                 </article>
 
-                <!-- BEST 03 -->
                 <article class="menu-card">
                     <div class="menu-badge">BEST 03</div>
                     <div class="menu-img">
@@ -213,7 +185,6 @@
                     </div>
                 </article>
 
-                <!-- BEST 04 -->
                 <article class="menu-card">
                     <div class="menu-badge">BEST 04</div>
                     <div class="menu-img">
@@ -229,7 +200,6 @@
                     </div>
                 </article>
 
-                <!-- BEST 05 -->
                 <article class="menu-card">
                     <div class="menu-badge">BEST 05</div>
                     <div class="menu-img">
@@ -246,7 +216,7 @@
                 </article>
             </div>
         </section>
-        
+
         <!-- 이벤트 -->
         <section class="section events">
             <div class="section-header">
@@ -255,14 +225,14 @@
             </div>
             <div class="event-grid">
                 <article class="event-card">
-                    <img src="./img/261002_buldak_telecom_main.jpg" alt="통신사 할인 이벤트">
+                    <img src="./img/261002_buldak_telecom_main.jpg" alt="통신사 할인">
                     <div class="event-info">
                         <h3>통신사 할인 이벤트</h3>
                         <p>최대 40% 할인 혜택</p>
                     </div>
                 </article>
                 <article class="event-card">
-                    <img src="./img/261001_hanapick_last10days_main.jpg" alt="하나카드 제휴 이벤트">
+                    <img src="./img/261001_hanapick_last10days_main.jpg" alt="하나카드">
                     <div class="event-info">
                         <h3>하나카드 제휴 이벤트</h3>
                         <p>LAST 10 DAYS 특별 할인</p>
@@ -291,7 +261,7 @@
             </div>
         </section>
 
-        <!-- 파파존스 APP (스마트폰 이미지 추가) -->
+        <!-- APP -->
         <section class="section app-download">
             <div class="app-content">
                 <div class="app-text">
@@ -303,10 +273,7 @@
                     </div>
                 </div>
                 <div class="app-phone">
-                    <!-- 스마트폰 목업 이미지 (img 폴더에 app-mockup.png 넣어주세요) -->
-                    <img src="./img/app-mockup.png" alt="파파존스 앱 화면" class="phone-img"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="phone-mockup" style="display:none;">App Mockup</div>
+                    <div class="phone-mockup">App Mockup</div>
                 </div>
             </div>
         </section>
