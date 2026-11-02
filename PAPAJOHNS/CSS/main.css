@@ -9,21 +9,13 @@
 :root {
     --color-brand-red: #D71920;
     --color-brand-green: #1B4D2B;
-    --color-text: #222222;
-    --color-white: #FFFFFF;
-    --color-control-bg: rgba(20, 20, 20, 0.65);
+    --color-text: #222;
+    --color-white: #fff;
     --color-gray: #f5f5f5;
     --color-border: #eee;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    margin: 0;
-    min-height: 100%;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: "Pretendard", sans-serif;
@@ -31,63 +23,42 @@ body {
     background: #fff;
 }
 
-button {
-    font: inherit;
-    cursor: pointer;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
 
 /* ===== 헤더 ===== */
 .site-header {
-    position: relative;
-    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 28px;
-    width: 100%;
     min-height: 76px;
     padding: 0 5.5%;
-    background: var(--color-white);
+    background: #fff;
     border-bottom: 1px solid var(--color-border);
+    position: relative;
+    z-index: 100;
 }
 
 .brand-logo {
-    flex: 0 0 auto;
     color: var(--color-brand-red);
-    font-size: clamp(18px, 1.35vw, 25px);
+    font-size: 22px;
     font-weight: 900;
-    letter-spacing: -1.2px;
-    white-space: nowrap;
+    letter-spacing: -1px;
 }
 
 .main-nav {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: clamp(16px, 2.3vw, 42px);
+    gap: 32px;
     flex: 1;
-}
-
-.main-nav a,
-.header-tools a {
-    color: var(--color-text);
-    white-space: nowrap;
+    justify-content: center;
 }
 
 .main-nav a {
     font-size: 14px;
     font-weight: 600;
-    transition: color 0.2s ease;
 }
 
 .main-nav a:hover,
@@ -98,56 +69,40 @@ a {
 .header-tools {
     display: flex;
     align-items: center;
-    gap: 15px;
-    flex: 0 0 auto;
-}
-
-.header-tools a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 28px;
+    gap: 16px;
 }
 
 .header-tools .material-symbols-outlined {
-    font-size: 21px;
+    font-size: 22px;
 }
 
 .mobile-menu {
     display: none;
-    width: 32px;
-    padding: 4px 0;
-    border: 0;
-    background: transparent;
+    width: 28px;
 }
-
 .mobile-menu span {
     display: block;
     height: 2px;
     margin: 6px 0;
-    background: var(--color-text);
+    background: #222;
 }
 
 /* ===== 드롭다운 ===== */
-.nav-item {
-    position: relative;
-}
+.nav-item { position: relative; }
 
 .dropdown {
     position: absolute;
     top: 100%;
     left: 50%;
+    transform: translateX(-50%) translateY(8px);
     min-width: 140px;
     padding: 10px 0;
-    margin: 0;
-    list-style: none;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    list-style: none;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50%) translateY(8px);
     transition: all 0.2s ease;
     pointer-events: none;
     z-index: 200;
@@ -177,7 +132,6 @@ a {
     font-weight: 500;
     color: #333;
     white-space: nowrap;
-    transition: background 0.15s, color 0.15s;
 }
 
 .dropdown li a:hover {
@@ -186,25 +140,17 @@ a {
 }
 
 /* ===== 히어로 ===== */
-.hero {
-    width: 100%;
-    overflow: hidden;
-}
-
 .hero-slider {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 1;
+    aspect-ratio: 4/1;
     overflow: hidden;
     background: var(--color-brand-green);
 }
 
-.hero-slides,
-.hero-slide {
+.hero-slides, .hero-slide {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .hero-slide {
@@ -227,60 +173,34 @@ a {
 .hero-arrow {
     position: absolute;
     top: 50%;
-    z-index: 2;
-    display: grid;
-    place-items: center;
+    transform: translateY(-50%);
     width: 46px;
     height: 46px;
-    padding: 0;
-    border: 0;
     border-radius: 50%;
-    transform: translateY(-50%);
-    background: var(--color-white);
-    color: var(--color-text);
-    font-size: 21px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    background: #fff;
+    font-size: 20px;
+    display: grid;
+    place-items: center;
+    z-index: 2;
 }
 
-.hero-arrow:hover {
-    transform: translateY(-50%) scale(1.06);
-}
-
-.hero-prev { left: 7.5%; }
-.hero-next {
-    right: 7.5%;
-    background: #222;
-    color: #fff;
-}
+.hero-prev { left: 7%; }
+.hero-next { right: 7%; background: #222; color: #fff; }
 
 .hero-controls {
     position: absolute;
     left: 50%;
     bottom: 4%;
-    z-index: 2;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 5px 10px;
+    padding: 5px 12px;
     border-radius: 999px;
-    background: var(--color-control-bg);
+    background: rgba(0,0,0,0.6);
     color: #fff;
     font-size: 14px;
-    transform: translateX(-50%);
-}
-
-.hero-page {
-    min-width: 30px;
-    text-align: center;
-}
-
-.hero-toggle {
-    background: transparent;
-    border: 0;
-    color: #fff;
-    font-size: 13px;
-    cursor: pointer;
+    z-index: 2;
 }
 
 /* ===== 공통 섹션 ===== */
@@ -300,21 +220,35 @@ a {
 .section-header h2 {
     font-size: 24px;
     font-weight: 700;
-    margin: 0;
+    display: flex;
+    align-items: center;
 }
 
 .section-header h2 strong {
     color: var(--color-brand-red);
 }
 
+.red-bar {
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: var(--color-brand-red);
+    margin-right: 8px;
+}
+
 .more-link {
     font-size: 14px;
     color: #666;
-    font-weight: 500;
 }
 
-.more-link:hover {
-    color: var(--color-brand-red);
+.btn-view-all {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--color-brand-red);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 /* ===== 서비스 아이콘 ===== */
@@ -323,7 +257,6 @@ a {
     justify-content: center;
     gap: 80px;
     padding: 50px 5%;
-    background: #fff;
 }
 
 .service-item {
@@ -347,30 +280,20 @@ a {
 
 .service-icon .material-symbols-outlined {
     font-size: 32px;
-    color: #333;
 }
 
-/* ===== BEST MENU 스타일 ===== */
-.section-header .red-bar {
-    display: inline-block;
-    width: 4px;
-    height: 20px;
-    background: var(--color-brand-red);
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
-.btn-view-all {
-    display: inline-block;
-    padding: 8px 16px;
-    background: var(--color-brand-red);
-    color: #fff !important;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
+/* ===== BEST MENU ===== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
 }
 
 .menu-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     position: relative;
 }
 
@@ -387,13 +310,31 @@ a {
     z-index: 2;
 }
 
+.menu-img {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.menu-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-info {
+    padding: 16px;
+    text-align: center;
+}
+
 .menu-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    font-size: 15px;
-    margin-bottom: 6px;
 }
 
 .best-tag {
@@ -408,7 +349,7 @@ a {
     font-size: 12px;
     color: #666;
     line-height: 1.4;
-    margin: 0 0 12px;
+    margin-bottom: 12px;
     min-height: 34px;
 }
 
@@ -417,7 +358,6 @@ a {
     justify-content: space-between;
     font-size: 13px;
     font-weight: 600;
-    color: #333;
 }
 
 /* ===== 이벤트 ===== */
@@ -430,13 +370,12 @@ a {
 .event-card {
     border-radius: 12px;
     overflow: hidden;
-    background: #fff;
     box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
 .event-card img {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
     object-fit: cover;
 }
 
@@ -447,13 +386,12 @@ a {
 .event-info h3 {
     font-size: 16px;
     font-weight: 700;
-    margin: 0 0 6px;
+    margin-bottom: 6px;
 }
 
 .event-info p {
     font-size: 14px;
     color: #666;
-    margin: 0;
 }
 
 /* ===== 매장찾기 ===== */
@@ -464,12 +402,12 @@ a {
 
 .store-content h2 {
     font-size: 24px;
-    margin: 0 0 8px;
+    margin-bottom: 8px;
 }
 
 .store-content p {
     color: #666;
-    margin: 0 0 24px;
+    margin-bottom: 24px;
 }
 
 .store-search {
@@ -489,10 +427,9 @@ a {
 
 .store-search button {
     padding: 12px 24px;
-    border: 0;
-    border-radius: 8px;
     background: var(--color-brand-red);
     color: #fff;
+    border-radius: 8px;
     font-weight: 600;
 }
 
@@ -505,7 +442,7 @@ a {
     background: #fff;
 }
 
-/* ===== 앱 다운로드 ===== */
+/* ===== APP ===== */
 .app-download {
     background: #f9f9f9;
 }
@@ -521,14 +458,14 @@ a {
 
 .app-text h2 {
     font-size: 28px;
-    margin: 0 0 12px;
+    margin-bottom: 12px;
 }
 
 .app-text p {
     font-size: 16px;
     color: #555;
     line-height: 1.6;
-    margin: 0 0 24px;
+    margin-bottom: 24px;
 }
 
 .app-buttons {
@@ -537,19 +474,13 @@ a {
 }
 
 .app-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     padding: 12px 24px;
+    background: #333;
+    color: #fff;
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
-    background: #333;
-    color: #fff;
-}
-
-.app-btn:hover {
-    background: #000;
 }
 
 .phone-mockup {
@@ -573,7 +504,6 @@ a {
 }
 
 .review-card {
-    background: #fff;
     border: 1px solid var(--color-border);
     border-radius: 12px;
     padding: 24px;
@@ -581,21 +511,18 @@ a {
 
 .review-stars {
     color: #f5a623;
-    font-size: 16px;
     margin-bottom: 12px;
 }
 
 .review-text {
     font-size: 15px;
     line-height: 1.6;
-    margin: 0 0 16px;
-    color: #333;
+    margin-bottom: 16px;
 }
 
 .review-author {
     font-size: 13px;
     color: #888;
-    margin: 0;
 }
 
 /* ===== 푸터 ===== */
@@ -623,10 +550,6 @@ a {
     margin-bottom: 20px;
 }
 
-.footer-info p {
-    margin: 0;
-}
-
 .footer-links {
     display: flex;
     gap: 20px;
@@ -634,186 +557,26 @@ a {
     font-size: 13px;
 }
 
-.footer-links a:hover {
-    color: #fff;
-}
-
 .copyright {
     font-size: 12px;
     color: #888;
-    margin: 0;
 }
 
 /* ===== 반응형 ===== */
 @media (max-width: 1024px) {
-    .menu-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .event-grid,
-    .review-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 900px) {
-    .site-header {
-        min-height: 68px;
-        gap: 16px;
-        padding: 0 4%;
-    }
-    .main-nav {
-        gap: 14px;
-    }
-    .main-nav a {
-        font-size: 12px;
-    }
+    .menu-grid { grid-template-columns: repeat(3, 1fr); }
+    .event-grid, .review-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-    .hero-slider {
-        aspect-ratio: 16/9;
-        min-height: 200px;
-    }
-    .hero-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 17px;
-    }
-    .hero-prev { left: 3%; }
-    .hero-next { right: 3%; }
-
-    .service-icons {
-        gap: 40px;
-    }
-    .service-icon {
-        width: 56px;
-        height: 56px;
-    }
-    .service-icon .material-symbols-outlined {
-        font-size: 24px;
-    }
-
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .app-content {
-        flex-direction: column;
-        text-align: center;
-    }
+    .hero-slider { aspect-ratio: 16/9; }
+    .service-icons { gap: 40px; }
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    .app-content { flex-direction: column; text-align: center; }
 }
 
 @media (max-width: 680px) {
-    .main-nav,
-    .header-tools {
-        display: none;
-    }
-    .mobile-menu {
-        display: block;
-    }
-    .dropdown {
-        display: none;
-    }
-
-    .event-grid,
-    .review-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* ===== BEST MENU 추가 스타일 ===== */
-.section-header .red-bar {
-    display: inline-block;
-    width: 4px;
-    height: 20px;
-    background: var(--color-brand-red);
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
-.btn-view-all {
-    display: inline-block;
-    padding: 8px 16px;
-    background: var(--color-brand-red);
-    color: #fff !important;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.menu-card {
-    position: relative;
-}
-
-.menu-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #222;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 4px;
-    z-index: 2;
-}
-
-.menu-info h3 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    font-size: 15px;
-}
-
-.best-tag {
-    font-size: 11px;
-    background: var(--color-brand-red);
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 4px;
-}
-
-.menu-info .desc {
-    font-size: 12px;
-    color: #666;
-    line-height: 1.4;
-    margin: 8px 0 12px;
-    min-height: 34px;
-}
-
-.price-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    font-weight: 600;
-    color: #333;
-}
-
-/* ===== APP 스마트폰 이미지 ===== */
-.app-phone {
-    position: relative;
-}
-
-.phone-img {
-    width: 220px;
-    height: auto;
-    border-radius: 28px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-}
-
-.phone-mockup {
-    width: 220px;
-    height: 400px;
-    background: #e0e0e0;
-    border-radius: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    font-size: 14px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    .main-nav, .header-tools { display: none; }
+    .mobile-menu { display: block; }
+    .menu-grid, .event-grid, .review-grid { grid-template-columns: 1fr; }
 }
