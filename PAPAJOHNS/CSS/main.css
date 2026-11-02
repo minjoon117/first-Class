@@ -321,8 +321,8 @@ a {
 .service-icons {
     display: flex;
     justify-content: center;
-    gap: 60px;
-    padding: 40px 5%;
+    gap: 80px;
+    padding: 50px 5%;
     background: #fff;
 }
 
@@ -330,7 +330,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-size: 15px;
     font-weight: 600;
 }
@@ -339,11 +339,15 @@ a {
     width: 72px;
     height: 72px;
     border-radius: 50%;
-    background: #f8f8f8;
+    background: #f5f5f5;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.service-icon .material-symbols-outlined {
     font-size: 32px;
+    color: #333;
 }
 
 /* ===== BEST MENU ===== */
@@ -366,7 +370,7 @@ a {
 }
 
 .menu-img {
-    aspect-ratio: 4/3;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     background: #f0f0f0;
 }
@@ -421,7 +425,7 @@ a {
 
 .event-card img {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
 }
 
@@ -487,6 +491,7 @@ a {
     border: 1px solid #ddd;
     border-radius: 8px;
     font-weight: 600;
+    background: #fff;
 }
 
 /* ===== 앱 다운로드 ===== */
@@ -520,15 +525,33 @@ a {
     gap: 12px;
 }
 
-.app-btn img {
-    height: 42px;
+.app-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
     border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #333;
+    color: #fff;
 }
 
-.app-phone img {
-    max-height: 360px;
-    border-radius: 24px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+.app-btn:hover {
+    background: #000;
+}
+
+.phone-mockup {
+    width: 220px;
+    height: 400px;
+    background: #e0e0e0;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
 }
 
 /* ===== 고객후기 ===== */
@@ -649,11 +672,13 @@ a {
     .hero-next { right: 3%; }
 
     .service-icons {
-        gap: 30px;
+        gap: 40px;
     }
     .service-icon {
         width: 56px;
         height: 56px;
+    }
+    .service-icon .material-symbols-outlined {
         font-size: 24px;
     }
 
