@@ -167,27 +167,6 @@ button {
     overflow: hidden;
     background: var(--color-brand-green);
 }
-.hero-controls {
-    position: absolute;
-    left: 50%;
-    bottom: 4%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 12px;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    font-size: 14px;
-    z-index: 2;
-}
-
-.hero-toggle {
-    color: #fff;
-    font-size: 14px;
-    line-height: 1;
-}
 .hero-slides,
 .hero-slide {
     position: absolute;
@@ -249,6 +228,12 @@ button {
     color: #fff;
     font-size: 14px;
     z-index: 2;
+}
+
+.hero-toggle {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
 }
 
 /* ===== 공통 섹션 ===== */
