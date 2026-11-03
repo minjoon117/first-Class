@@ -47,7 +47,7 @@
             left: 0;
             width: 48px;
             height: 48px;
-            background: url(img/back_icon.svg) no-repeat scroll center / auto;
+            background: url(../img/back_icon.svg) no-repeat scroll center / auto;
         }
         h1 {
             font-size: 2.0rem; 
@@ -110,7 +110,7 @@
             bottom: 12px;
             width: 26px;
             height: 26px;
-            background: url(img/eye_icon.svg) no-repeat center / 26px;
+            background: url(../img/eye_icon.svg) no-repeat center / 26px;
         }
 
         .login_option {
@@ -138,11 +138,11 @@
             display: inline-block;
             width: 30px;
             height: 30px;
-            background: url(img/checkBox_disabled.svg) no-repeat center / contain;
+            background: url(../img/checkBox_disabled.svg) no-repeat center / contain;
         }
         .login_option .check:checked + span:before {
             content: "";
-            background-image: url(img/checkBox_active.svg);
+            background-image: url(../img/checkBox_active.svg);
         }
 
         /* button요소는 기본적으로 상속이 불가하여 상속에 관련된 값을 따로 넣어야 함 */
@@ -222,16 +222,16 @@
             background-size: 45px;
         }
         .sns_list > a:first-child {
-            background-image: url(img/kakao_logo_icon.svg);
+            background-image: url(../img/kakao_logo_icon.svg);
         }
         .sns_list > a:nth-child(2) {
-            background-image: url(img/naver_logo_icon.svg);
+            background-image: url(../img/naver_logo_icon.svg);
         }
         .sns_list > a:nth-child(3) {
-            background-image: url(img/apple_logo_icon.svg);
+            background-image: url(../img/apple_logo_icon.svg);
         }
         .sns_list > a:last-child {
-            background-image: url(img/samsung_logo_icon.svg);
+            background-image: url(../img/samsung_logo_icon.svg);
         }
        /* header {
             background-color: darkgreen;
