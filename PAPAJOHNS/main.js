@@ -17,10 +17,12 @@ function showSlide(index) {
     slides.forEach((slide, slideIndex) => {
         const isActive = slideIndex === currentIndex;
         slide.classList.toggle("is-active", isActive);
-        slide.setAttribute("aria-hidden", String(!isActive));
+        slide.setAttribute("aria-hidden", String(! indActive));
     });
 
-    pageText.textContent = `${currentIndex + 1} / ${slides.length}`;
+    if (pageText) {
+        pageText.textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
 }
 
 function stopAutoPlay() {
@@ -39,6 +41,8 @@ function startAutoPlay() {
 }
 
 function updateToggleButton() {
+    if (!toggleButton) return;
+
     toggleButton.innerHTML = isPlaying
         ? '<span aria-hidden="true">&#8545;</span>'
         : '<span aria-hidden="true">&#9654;</span>';
@@ -49,27 +53,36 @@ function updateToggleButton() {
     );
 }
 
-prevButton.addEventListener("click", () => {
-    showSlide(currentIndex - 1);
-    startAutoPlay();
-});
+if (prevButton) {
+    prevButton.addEventListener("click", () => {
+        showSlide(currentIndex - 1);
+        startAutoPlay();
+    });
+}
 
-nextButton.addEventListener("click", () => {
-    showSlide(currentIndex + 1);
-    startAutoPlay();
-});
+if (nextButton) {
+    nextButton.addEventListener("click", () => {
+        showSlide(currentIndex + 1);
+        startAutoPlay();
+    });
+}
 
-toggleButton.addEventListener("click", () => {
-    isPlaying = !isPlaying;
-    updateToggleButton();
-    startAutoPlay();
-});
+if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+        isPlaying = !isPlaying;
+        updateToggleButton();
+        startAutoPlay();
+    });
+}
 
-slider.addEventListener("mouseenter", stopAutoPlay);
-slider.addEventListener("mouseleave", startAutoPlay);
-slider.addEventListener("focusin", stopAutoPlay);
-slider.addEventListener("focusout", startAutoPlay);
+if (slider) {
+    slider.addEventListener("mouseenter", stopAutoPlay);
+    slider.addEventListener("mouseleave", startAutoPlay);
+    slider.addEventListener("focusin", stopAutoPlay);
+    slider.addEventListener("focusout", startAutoPlay);
+}
 
+// 초기 실행
 showSlide(0);
 updateToggleButton();
 startAutoPlay();
