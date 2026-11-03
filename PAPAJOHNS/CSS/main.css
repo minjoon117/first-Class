@@ -344,15 +344,19 @@ button {
 }
 
 .menu-img {
+    display: grid;
+    place-items: center;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    background: #f0f0f0;
+    padding: 14px;
+    background: #fff;
 }
 
 .menu-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 86%;
+    height: 86%;
+    object-fit: contain;
+    object-position: center;
 }
 
 .menu-info {
