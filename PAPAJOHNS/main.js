@@ -1,47 +1,88 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const slider = document.querySelector(".hero-slider");
-  const track = slider && slider.querySelector(".swiper-wrapper");
-  const slides = track ? Array.from(track.querySelectorAll(".hero-slide")) : [];
-  const prev = document.querySelector(".hero-prev");
-  const next = document.querySelector(".hero-next");
-  const page = document.querySelector(".hero-page");
-  const toggle = document.querySelector(".hero-toggle");
+const slides = Array.from(document.querySelectorAll(".hero-slide"));
+const prevButton = document.querySelector(".hero-prev");
+const nextButton = document.querySelector(".hero-next");
+const pageText = document.querySelector(".hero-page");
+const toggleButton = document.querySelector(".hero-toggle");
+const slider = document.querySelector(".hero-slider");
 
-  if (slider && track && slides.length) {
-    let index = 0, timer = null, playing = true;
-    function show(n) {
-      index = (n + slides.length) % slides.length;
-      track.style.transform = "translateX(-" + index * 100 + "%)";
-      if (page) page.textContent = (index + 1) + " / " + slides.length;
-    }
-    function stop() { if (timer) clearInterval(timer); timer = null; }
-    function start() {
-      stop();
-      if (playing && slides.length > 1) timer = setInterval(function () { show(index + 1); }, 5000);
-    }
-    function updateToggle() {
-      if (!toggle) return;
-      toggle.textContent = playing ? "Ⅱ" : "▶";
-      toggle.setAttribute("aria-label", playing ? "자동 재생 일시정지" : "자동 재생 시작");
-    }
-    if (prev) prev.addEventListener("click", function () { show(index - 1); start(); });
-    if (next) next.addEventListener("click", function () { show(index + 1); start(); });
-    if (toggle) toggle.addEventListener("click", function () { playing = !playing; updateToggle(); start(); });
-    slider.addEventListener("mouseenter", stop);
-    slider.addEventListener("mouseleave", start);
-    slider.addEventListener("focusin", stop);
-    slider.addEventListener("focusout", start);
-    show(0); updateToggle(); start();
-  }
+let currentIndex = 0;
+let isPlaying = true;
+let autoPlayTimer = null;
 
-  const header = document.querySelector(".site-header");
-  const menu = document.querySelector(".mobile-menu");
-  if (header && menu) {
-    menu.setAttribute("aria-expanded", "false");
-    menu.addEventListener("click", function () {
-      const open = header.classList.toggle("menu-open");
-      menu.setAttribute("aria-expanded", String(open));
-      menu.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+function showSlide(index) {
+    if (slides.length === 0) return;
+
+    currentIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === currentIndex;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", String(!isActive));
     });
-  }
-});
+
+    if (pageText) {
+        pageText.textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
+}
+
+function stopAutoPlay() {
+    window.clearInterval(autoPlayTimer);
+    autoPlayTimer = null;
+}
+
+function startAutoPlay() {
+    stopAutoPlay();
+
+    if (!isPlaying || slides.length < 2) return;
+
+    autoPlayTimer = window.setInterval(() => {
+        showSlide(currentIndex + 1);
+    }, 5000);
+}
+
+function updateToggleButton() {
+    if (!toggleButton) return;
+
+    toggleButton.innerHTML = isPlaying
+        ? '<span aria-hidden="true">&#8545;</span>'
+        : '<span aria-hidden="true">&#9654;</span>';
+
+    toggleButton.setAttribute(
+        "aria-label",
+        isPlaying ? "자동 재생 일시정지" : "자동 재생 시작"
+    );
+}
+
+if (prevButton) {
+    prevButton.addEventListener("click", () => {
+        showSlide(currentIndex - 1);
+        startAutoPlay();
+    });
+}
+
+if (nextButton) {
+    nextButton.addEventListener("click", () => {
+        showSlide(currentIndex + 1);
+        startAutoPlay();
+    });
+}
+
+if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+        isPlaying = !isPlaying;
+        updateToggleButton();
+        startAutoPlay();
+    });
+}
+
+if (slider) {
+    slider.addEventListener("mouseenter", stopAutoPlay);
+    slider.addEventListener("mouseleave", startAutoPlay);
+    slider.addEventListener("focusin", stopAutoPlay);
+    slider.addEventListener("focusout", startAutoPlay);
+}
+
+// 초기 실행
+showSlide(0);
+updateToggleButton();
+startAutoPlay();
