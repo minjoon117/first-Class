@@ -1,88 +1,85 @@
-const slides = Array.from(document.querySelectorAll(".hero-slide"));
-const prevButton = document.querySelector(".hero-prev");
-const nextButton = document.querySelector(".hero-next");
-const pageText = document.querySelector(".hero-page");
-const toggleButton = document.querySelector(".hero-toggle");
-const slider = document.querySelector(".hero-slider");
+document.addEventListener("DOMContentLoaded", () => {
+    const sliderElement = document.querySelector(".hero-slider");
+    const pageText = document.querySelector(".hero-page");
+    const toggleButton = document.querySelector(".hero-toggle");
 
-let currentIndex = 0;
-let isPlaying = true;
-let autoPlayTimer = null;
-
-function showSlide(index) {
-    if (slides.length === 0) return;
-
-    currentIndex = (index + slides.length) % slides.length;
-
-    slides.forEach((slide, slideIndex) => {
-        const isActive = slideIndex === currentIndex;
-        slide.classList.toggle("is-active", isActive);
-        slide.setAttribute("aria-hidden", String(! indActive));
-    });
-
-    if (pageText) {
-        pageText.textContent = `${currentIndex + 1} / ${slides.length}`;
+    if (!sliderElement || typeof Swiper === "undefined") {
+        console.error("Hero 슬라이더 또는 Swiper 라이브러리를 찾을 수 없습니다.");
+        return;
     }
-}
 
-function stopAutoPlay() {
-    window.clearInterval(autoPlayTimer);
-    autoPlayTimer = null;
-}
-
-function startAutoPlay() {
-    stopAutoPlay();
-
-    if (!isPlaying || slides.length < 2) return;
-
-    autoPlayTimer = window.setInterval(() => {
-        showSlide(currentIndex + 1);
-    }, 5000);
-}
-
-function updateToggleButton() {
-    if (!toggleButton) return;
-
-    toggleButton.innerHTML = isPlaying
-        ? '<span aria-hidden="true">&#8545;</span>'
-        : '<span aria-hidden="true">&#9654;</span>';
-
-    toggleButton.setAttribute(
-        "aria-label",
-        isPlaying ? "자동 재생 일시정지" : "자동 재생 시작"
-    );
-}
-
-if (prevButton) {
-    prevButton.addEventListener("click", () => {
-        showSlide(currentIndex - 1);
-        startAutoPlay();
+    const heroSwiper = new Swiper(sliderElement, {
+        slidesPerView: 1,
+        loop: true,
+        speed: 600,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+        },
+        navigation: {
+            prevEl: ".hero-prev",
+            nextEl: ".hero-next"
+        },
+        on: {
+            init(swiper) {
+                updatePage(swiper);
+            },
+            slideChange(swiper) {
+                updatePage(swiper);
+            }
+        }
     });
-}
 
-if (nextButton) {
-    nextButton.addEventListener("click", () => {
-        showSlide(currentIndex + 1);
-        startAutoPlay();
-    });
-}
+    function updatePage(swiper) {
+        if (pageText) {
+            pageText.textContent = `${swiper.realIndex + 1} / ${swiper.slides.length}`;
+        }
+    }
 
-if (toggleButton) {
-    toggleButton.addEventListener("click", () => {
-        isPlaying = !isPlaying;
+    function updateToggleButton() {
+        if (!toggleButton) return;
+
+        const isPlaying = !heroSwiper.autoplay.paused && heroSwiper.autoplay.running;
+        toggleButton.innerHTML = isPlaying
+            ? '<span aria-hidden="true">&#8545;</span>'
+            : '<span aria-hidden="true">&#9654;</span>';
+        toggleButton.setAttribute(
+            "aria-label",
+            isPlaying ? "자동 재생 일시정지" : "자동 재생 시작"
+        );
+    }
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            if (heroSwiper.autoplay.running && !heroSwiper.autoplay.paused) {
+                heroSwiper.autoplay.stop();
+            } else {
+                heroSwiper.autoplay.start();
+            }
+            updateToggleButton();
+        });
+    }
+
+    sliderElement.addEventListener("mouseenter", () => {
+        if (heroSwiper.autoplay.running) heroSwiper.autoplay.pause();
         updateToggleButton();
-        startAutoPlay();
     });
-}
 
-if (slider) {
-    slider.addEventListener("mouseenter", stopAutoPlay);
-    slider.addEventListener("mouseleave", startAutoPlay);
-    slider.addEventListener("focusin", stopAutoPlay);
-    slider.addEventListener("focusout", startAutoPlay);
-}
+    sliderElement.addEventListener("mouseleave", () => {
+        if (heroSwiper.autoplay.running) heroSwiper.autoplay.resume();
+        updateToggleButton();
+    });
 
-// 초기 실행
-showSlide(0);
-updateToggleButton();
-startAutoPlay();
+    sliderElement.addEventListener("focusin", () => {
+        if (heroSwiper.autoplay.running) heroSwiper.autoplay.pause();
+        updateToggleButton();
+    });
+
+    sliderElement.addEventListener("focusout", () => {
+        if (heroSwiper.autoplay.running) heroSwiper.autoplay.resume();
+        updateToggleButton();
+    });
+
+    updateToggleButton();
+});
