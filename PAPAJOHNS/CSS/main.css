@@ -640,3 +640,36 @@ button {
         grid-template-columns: 1fr;
     }
 }
+/* ===== 상단 유틸 바 ===== */
+.top-util {
+    background: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+.top-util-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 5.5%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-util-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-util-right a {
+    color: #666;
+    font-weight: 500;
+}
+
+.top-util-right a:hover {
+    color: var(--color-brand-red);
+}
+
+.top-util-right .divider {
+    color: #ccc;
+}
