@@ -44,6 +44,40 @@ button {
     background: none;
 }
 
+/* ===== 상단 유틸 바 ===== */
+.top-util {
+    background: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+.top-util-inner {
+    width: 100%;
+    padding: 8px 5.5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-util-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-util-right a {
+    color: #666;
+    font-weight: 500;
+}
+
+.top-util-right a:hover {
+    color: var(--color-brand-red);
+}
+
+.top-util-right .divider {
+    color: #ccc;
+}
+
 /* ===== 헤더 ===== */
 .site-header {
     display: flex;
@@ -167,6 +201,7 @@ button {
     overflow: hidden;
     background: var(--color-brand-green);
 }
+
 .hero-slides,
 .hero-slide {
     position: absolute;
@@ -344,19 +379,15 @@ button {
 }
 
 .menu-img {
-    display: grid;
-    place-items: center;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    padding: 14px;
-    background: #fff;
+    background: #f0f0f0;
 }
 
 .menu-img img {
-    width: 86%;
-    height: 86%;
-    object-fit: contain;
-    object-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .menu-info {
@@ -639,36 +670,4 @@ button {
     .review-grid {
         grid-template-columns: 1fr;
     }
-/* ===== 상단 유틸 바 ===== */
-.top-util {
-    background: #f8f8f8;
-    border-bottom: 1px solid #eee;
-    font-size: 13px;
-}
-
-.top-util-inner {
-    width: 100%;
-    padding: 8px 5.5%;
-    display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 */
-    align-items: center;
-}
-
-.top-util-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.top-util-right a {
-    color: #666;
-    font-weight: 500;
-}
-
-.top-util-right a:hover {
-    color: var(--color-brand-red);
-}
-
-.top-util-right .divider {
-    color: #ccc;
 }
