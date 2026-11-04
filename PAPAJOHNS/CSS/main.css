@@ -428,6 +428,24 @@ button {
     font-weight: 600;
 }
 
+/* BEST MENU TOP5 이미지 크기 조정 */
+.best-menu .menu-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    padding: 16px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.best-menu .menu-img img {
+    width: 82%;
+    height: 82%;
+    object-fit: contain;
+    object-position: center;
+}
+
 /* ===== 이벤트 ===== */
 .event-grid {
     display: grid;
