@@ -647,11 +647,10 @@ button {
 }
 
 .top-util-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     padding: 8px 5.5%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* 오른쪽 정렬 */
     align-items: center;
 }
 
@@ -659,7 +658,6 @@ button {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: auto;
 }
 
 .top-util-right a {
