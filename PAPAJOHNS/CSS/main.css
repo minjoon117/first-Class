@@ -454,6 +454,32 @@ button {
     object-position: center;
 }
 
+/* BEST MENU TOP5 카드 제목·설명·가격 간격 정렬 */
+.best-menu .menu-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.best-menu .menu-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.best-menu .menu-info h3 {
+    min-height: 40px;
+    justify-content: center;
+}
+
+.best-menu .menu-info .desc {
+    min-height: 50px;
+}
+
+.best-menu .price-row {
+    margin-top: auto;
+}
+
 /* ===== 이벤트 ===== */
 .event-grid {
     display: grid;
