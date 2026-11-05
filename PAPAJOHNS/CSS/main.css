@@ -488,32 +488,44 @@ button {
 }
 
 .event-card {
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    background: #fff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
 .event-card img {
-    display: block;
     width: 100%;
-    height: 140px;
-    object-fit: contain;
-    background: #fff;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover img {
+    transform: scale(1.03);
 }
 
 .event-info {
-    padding: 16px;
+    padding: 18px 16px 20px;
 }
 
 .event-info h3 {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 6px;
+    color: #222;
 }
 
 .event-info p {
     font-size: 14px;
     color: #666;
+    line-height: 1.4;
 }
 
 /* ===== 매장찾기 ===== */
