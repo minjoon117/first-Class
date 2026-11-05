@@ -502,7 +502,7 @@ button {
 
 .event-card img {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    height: 110px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
