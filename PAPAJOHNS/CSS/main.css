@@ -488,6 +488,7 @@ button {
 }
 
 .event-card {
+    width: 321px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -501,9 +502,10 @@ button {
 }
 
 .event-card img {
-    width: 100%;
+    width: 321px;
     height: 110px;
     object-fit: cover;
+    display: block;
     transition: transform 0.3s ease;
 }
 
