@@ -424,8 +424,16 @@ button {
 .price-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 13px;
     font-weight: 600;
+    color: #333;
+    gap: 12px;
+}
+
+.price-row span {
+    flex: 1;
+    text-align: center;
 }
 
 
