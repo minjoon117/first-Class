@@ -1463,3 +1463,26 @@ button {
         gap: 12px;
     }
 }
+
+
+/* ===== APP SECTION : clean rebuild ===== */
+.app-download.section{width:100%;max-width:none;margin:0;padding:30px 3%;background:#f7f8fa}
+.app-download .app-content{width:100%;max-width:1320px;min-height:250px;margin:0 auto;display:grid;grid-template-columns:minmax(230px,1fr) minmax(390px,1.35fr) minmax(230px,.9fr);align-items:center;column-gap:38px}
+.app-download .app-left{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.app-download .app-left h2{display:flex;align-items:center;margin:0 0 12px;color:#111;font-size:26px;line-height:1.2;font-weight:700}
+.app-download .app-left h2 .red-bar{width:5px;height:30px;margin-right:10px;background:#c8102e}
+.app-download .app-phone-image{width:180px;height:182px;margin-left:4px;display:flex;align-items:center;justify-content:center}
+.app-download .app-phone-image img{display:block;width:180px;height:182px;object-fit:contain}
+.app-download .app-benefits{min-width:0;min-height:200px;display:flex;flex-direction:column;justify-content:space-around;gap:12px;padding:0 34px 0 0;border-right:1px solid #d7d9dc}
+.app-download .app-benefit{display:flex;align-items:center;gap:18px;min-width:0}
+.app-download .app-benefit-icon{width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;border-radius:50%;background:#f8e9eb;color:#c8102e}
+.app-download .app-benefit-icon .material-symbols-outlined{font-size:23px}
+.app-download .app-benefit-copy{min-width:0}
+.app-download .app-benefit h3{margin:0 0 6px;color:#111;font-size:14px;line-height:1.35;font-weight:700}
+.app-download .app-benefit p{margin:0;color:#a8a8a8;font-size:11px;line-height:1.45}
+.app-download .app-store-links{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:14px;padding-left:0;border:0}
+.app-download .app-store-btn{width:100%;min-height:54px;display:flex;align-items:center;gap:14px;padding:10px 16px;border:1px solid #d0d2d5;border-radius:10px;background:#fff;color:#111;text-decoration:none;font-size:17px;font-weight:600}
+.app-download .app-store-btn .store-logo{width:26px;height:26px;flex:0 0 26px}
+.app-download .app-store-btn .store-arrow{margin-left:auto;font-size:20px}
+@media(max-width:900px){.app-download .app-content{grid-template-columns:190px minmax(300px,1fr) 200px;column-gap:20px}.app-download .app-benefits{padding-right:18px}.app-download .app-benefit{gap:10px}.app-download .app-benefit p{font-size:10px}}
+@media(max-width:680px){.app-download.section{padding:28px 20px}.app-download .app-content{grid-template-columns:1fr;gap:24px}.app-download .app-left{align-items:center}.app-download .app-benefits{min-height:0;padding:20px 0;border-right:0;border-top:1px solid #d7d9dc;border-bottom:1px solid #d7d9dc}.app-download .app-store-links{width:100%}}
