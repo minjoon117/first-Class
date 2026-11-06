@@ -595,58 +595,96 @@ button {
 
 /* ===== APP ===== */
 .app-download {
-    max-width: 1200px;
-    padding-top: 48px;
-    padding-bottom: 48px;
     background: #f9f9f9;
-    border-radius: 18px;
-}
-
-.app-heading {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 28px;
-}
-
-.app-heading .red-bar {
-    flex: 0 0 5px;
-    height: 34px;
-    margin: 2px 0 0;
-    border-radius: 3px;
-}
-
-.app-heading h2 {
-    font-size: 28px;
-    margin-bottom: 5px;
-}
-
-.app-heading p {
-    color: #666;
-    font-size: 15px;
+    padding: 80px 5%;
 }
 
 .app-content {
-    display: grid;
-    grid-template-columns: 0.9fr 1.35fr 1fr;
+    display: flex;
     align-items: center;
-    gap: 34px;
-    max-width: 1080px;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1100px;
     margin: 0 auto;
+    background: #fff;
+    border-radius: 24px;
+    padding: 50px 60px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.app-text h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.app-text h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 22px;
+    background: var(--color-brand-red);
+    border-radius: 2px;
+}
+
+.app-text p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.app-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.app-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    min-width: 180px;
+}
+
+.app-btn:hover {
+    border-color: #333;
+    background: #f8f8f8;
 }
 
 .app-phone {
-    display: flex;
-    justify-content: center;
+    flex-shrink: 0;
 }
 
 .phone-mockup {
-    width: 190px;
-    padding: 8px;
-    background: #171717;
-    border: 2px solid #333;
-    border-radius: 30px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    width: 260px;
+    height: 480px;
+    background: #f0f0f0;
+    border-radius: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.phone-mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .phone-status {
