@@ -596,7 +596,7 @@ button {
 /* ===== APP ===== */
 .app-download {
     background: #f7f7f7;
-    padding: 80px 5%;
+    padding: 40px 5%;
 }
 
 .app-content {
@@ -609,7 +609,7 @@ button {
     gap: 60px;
     background: #fff;
     border-radius: 24px;
-    padding: 50px 70px;
+    padding: 40px 50px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
