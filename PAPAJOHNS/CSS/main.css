@@ -1054,7 +1054,7 @@ button {
     max-width: none;
     margin: 0;
     padding: 0;
-    background: #f7f8fa;
+    background: #fff;
 }
 .app-download .app-content {
     width: 100%;
@@ -1066,7 +1066,7 @@ button {
     grid-template-columns: 260px minmax(0, 1fr) 276px;
     align-items: center;
     column-gap: 30px;
-    background: #f7f8fa;
+    background: #fff;
     border-radius: 0;
     box-shadow: none;
 }
