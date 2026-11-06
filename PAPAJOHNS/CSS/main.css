@@ -1152,3 +1152,314 @@ button {
     .app-download .app-benefits { height:auto; padding:20px 0; border-right:0; border-top:1px solid #ddd; border-bottom:1px solid #ddd; }
     .app-download .app-store-links { padding:0; gap:12px; }
 }
+
+
+/* ===== PAPA APP : 원본 레이아웃에 맞춘 최종 정렬 ===== */
+.app-download.section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 30px 5%;
+    background: #f7f8fa;
+}
+.app-download .app-content {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 250px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr) 265px;
+    align-items: center;
+    column-gap: 30px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+.app-download .app-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+}
+.app-download .app-left h2 {
+    display: flex;
+    align-items: center;
+    margin: 0 0 12px;
+    font-size: 26px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+.app-download .app-left h2 .red-bar {
+    width: 5px;
+    height: 30px;
+    margin-right: 10px;
+    background: #c8102e;
+}
+.app-download .phone-mockup {
+    position: relative;
+    width: 184px;
+    height: 184px;
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    flex: 0 0 184px;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+.app-download .phone-mockup::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: 184px;
+    height: 184px;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    background: #f8e9eb;
+}
+.app-download .phone-device {
+    position: relative;
+    z-index: 1;
+    width: 91px;
+    height: 178px;
+    padding: 4px;
+    border: 2px solid #252525;
+    border-radius: 18px;
+    background: #171717;
+    box-shadow: 0 2px 3px #0002;
+}
+.app-download .phone-speaker {
+    position: absolute;
+    z-index: 3;
+    top: 5px;
+    left: 50%;
+    width: 25px;
+    height: 4px;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    background: #171717;
+}
+.app-download .phone-screen {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 9px 4px 4px;
+    border-radius: 13px;
+    background: #fff;
+}
+.app-download .phone-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 5px;
+    color: #c8102e;
+    font-size: 6px;
+}
+.app-download .phone-brand .material-symbols-outlined {
+    font-size: 10px;
+    color: #222;
+}
+.app-download .phone-banner {
+    min-height: 68px;
+    padding: 5px 4px;
+    overflow: hidden;
+    border-radius: 5px;
+    background: #f8e8e8;
+    color: #333;
+    font-size: 5px;
+}
+.app-download .phone-banner span,
+.app-download .phone-banner strong {
+    display: block;
+}
+.app-download .phone-banner strong {
+    font-size: 7px;
+}
+.app-download .phone-banner img {
+    display: block;
+    width: 54px;
+    height: 38px;
+    margin: 2px 0 0 auto;
+    object-fit: contain;
+}
+.app-download .phone-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 4px;
+}
+.app-download .phone-shortcuts span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+.app-download .phone-shortcuts b {
+    color: #c8102e;
+    font-size: 10px;
+}
+.app-download .phone-recommend > small {
+    font-size: 5px;
+    font-weight: 700;
+}
+.app-download .phone-product {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 3px;
+    padding: 3px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+.app-download .phone-product img {
+    width: 26px;
+    height: 22px;
+    object-fit: contain;
+}
+.app-download .phone-product span,
+.app-download .phone-product small {
+    display: block;
+}
+.app-download .phone-product b {
+    font-size: 5px;
+}
+.app-download .phone-product small {
+    margin-top: 1px;
+    color: #888;
+    font-size: 4px;
+}
+.app-download .phone-bottom {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 4px;
+    color: #555;
+}
+.app-download .phone-bottom .material-symbols-outlined {
+    font-size: 9px;
+}
+.app-download .app-benefits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    min-width: 0;
+    height: 200px;
+    padding: 0 28px 0 0;
+    border-right: 1px solid #d9dce0;
+}
+.app-download .app-benefit {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+.app-download .app-benefit-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f8e9eb;
+    color: #c8102e;
+}
+.app-download .app-benefit-icon .material-symbols-outlined {
+    font-size: 23px;
+}
+.app-download .app-benefit h3 {
+    margin: 0 0 5px;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+.app-download .app-benefit p {
+    margin: 0;
+    color: #aaa;
+    font-size: 11px;
+    line-height: 1.4;
+}
+.app-download .app-store-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    min-width: 0;
+    padding: 0 8px 0 10px;
+    border: 0;
+}
+.app-download .app-store-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    min-height: 54px;
+    padding: 10px 14px;
+    border: 1px solid #d5d7da;
+    border-radius: 10px;
+    background: #fff;
+    color: #111;
+    font-size: 16px;
+    font-weight: 600;
+}
+.app-download .store-logo {
+    flex: 0 0 25px;
+    width: 25px;
+    height: 25px;
+}
+.app-download .app-store-btn .store-arrow {
+    margin-left: auto;
+    font-size: 19px;
+}
+@media (max-width: 900px) {
+    .app-download .app-content {
+        grid-template-columns: 220px minmax(0, 1fr) 210px;
+        column-gap: 18px;
+        padding: 10px;
+    }
+    .app-download .app-benefits {
+        padding-right: 16px;
+    }
+    .app-download .app-benefit {
+        gap: 9px;
+    }
+    .app-download .app-benefit p {
+        font-size: 10px;
+    }
+    .app-download .app-store-links {
+        padding: 0;
+    }
+}
+@media (max-width: 680px) {
+    .app-download.section {
+        padding: 30px 20px;
+    }
+    .app-download .app-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 10px 0;
+    }
+    .app-download .app-left {
+        align-items: center;
+    }
+    .app-download .app-benefits {
+        height: auto;
+        padding: 20px 0;
+        border-right: 0;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    .app-download .app-store-links {
+        width: 100%;
+        padding: 0;
+        gap: 12px;
+    }
+}
