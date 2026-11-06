@@ -596,44 +596,33 @@ button {
 /* ===== APP ===== */
 .app-download {
     background: #f9f9f9;
-    padding: 80px 5%;
+    padding: 60px 5%;
 }
 
 .app-content {
+    max-width: 1720px;
+    height: 500px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
-    max-width: 1100px;
-    margin: 0 auto;
+    gap: 40px;
     background: #fff;
-    border-radius: 24px;
-    padding: 50px 60px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 40px 60px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .app-text h2 {
     font-size: 28px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.app-text h2::before {
-    content: "";
-    display: inline-block;
-    width: 4px;
-    height: 22px;
-    background: var(--color-brand-red);
-    border-radius: 2px;
+    margin-bottom: 12px;
 }
 
 .app-text p {
-    font-size: 15px;
+    font-size: 16px;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .app-buttons {
@@ -649,13 +638,11 @@ button {
     gap: 8px;
     padding: 14px 28px;
     background: #fff;
-    color: #333;
     border: 1px solid #ddd;
     border-radius: 10px;
     font-size: 15px;
     font-weight: 600;
     transition: all 0.2s ease;
-    min-width: 180px;
 }
 
 .app-btn:hover {
@@ -663,28 +650,18 @@ button {
     background: #f8f8f8;
 }
 
-.app-phone {
-    flex-shrink: 0;
-}
-
 .phone-mockup {
-    width: 260px;
-    height: 480px;
-    background: #f0f0f0;
-    border-radius: 36px;
+    width: 220px;
+    height: 400px;
+    background: #e0e0e0;
+    border-radius: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #888;
     font-size: 14px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-    overflow: hidden;
-}
-
-.phone-mockup img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
 }
 
 .phone-status {
