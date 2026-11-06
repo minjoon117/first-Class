@@ -1486,3 +1486,31 @@ button {
 .app-download .app-store-btn .store-arrow{margin-left:auto;font-size:20px}
 @media(max-width:900px){.app-download .app-content{grid-template-columns:190px minmax(300px,1fr) 200px;column-gap:20px}.app-download .app-benefits{padding-right:18px}.app-download .app-benefit{gap:10px}.app-download .app-benefit p{font-size:10px}}
 @media(max-width:680px){.app-download.section{padding:28px 20px}.app-download .app-content{grid-template-columns:1fr;gap:24px}.app-download .app-left{align-items:center}.app-download .app-benefits{min-height:0;padding:20px 0;border-right:0;border-top:1px solid #d7d9dc;border-bottom:1px solid #d7d9dc}.app-download .app-store-links{width:100%}}
+
+
+/* ===== APP 영역 : 흰색 바깥 여백 포함 ===== */
+.app-download.section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 30px 5%;
+    background: #fff;
+}
+.app-download .app-content {
+    width: 100%;
+    max-width: 1320px;
+    min-height: 250px;
+    margin: 0 auto;
+    padding: 22px 34px;
+    background: #f7f8fa;
+    border-radius: 16px;
+    box-shadow: none;
+}
+@media (max-width: 680px) {
+    .app-download.section {
+        padding: 24px 16px;
+    }
+    .app-download .app-content {
+        padding: 22px 20px;
+    }
+}
