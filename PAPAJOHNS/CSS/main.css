@@ -1846,3 +1846,34 @@ button {
         min-height: 440px;
     }
 }
+
+
+/* APP 영역 실제 패널 크기: 1720 x 500px */
+.app-download {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fff;
+}
+.app-download .app-panel {
+    width: min(1720px, 100%);
+    max-width: 1720px;
+    height: 500px;
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 24px 34px;
+    box-sizing: border-box;
+    background: #e9e9eb;
+}
+@media (max-width: 680px) {
+    .app-download .app-panel {
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+        padding: 24px 20px;
+    }
+}
