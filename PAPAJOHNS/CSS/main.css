@@ -1817,3 +1817,32 @@ button {
     }
     .app-download .app-store-links { padding: 0; gap: 12px; }
 }
+
+
+/* APP 섹션 크기 및 배경색 조정 */
+.app-download {
+    width: 100%;
+    max-width: 1720px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 30px 5.8%;
+    box-sizing: border-box;
+}
+.app-download .app-panel {
+    width: 100%;
+    max-width: none;
+    height: 440px;
+    min-height: 0;
+    box-sizing: border-box;
+    background: #eeeeef;
+}
+@media (max-width: 680px) {
+    .app-download {
+        height: auto;
+        min-height: 500px;
+    }
+    .app-download .app-panel {
+        height: auto;
+        min-height: 440px;
+    }
+}
