@@ -606,11 +606,12 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 60px;
     background: #fff;
-    border-radius: 20px;
-    padding: 40px 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border-radius: 24px;
+    padding: 40px 60px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
 }
 .app-left h2 {
     font-size: 26px;
