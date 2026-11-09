@@ -600,24 +600,16 @@ button {
 }
 
 .app-content {
-    max-width: 1100px;          /* 너무 넓지 않게 */
+    max-width: 1100px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    background: #fff;
-    border-radius: 20px;
-    padding: 40px 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    text-align: center;
 }
 
-.app-left h2 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
+.app-full-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
 }
 
 .phone-mockup {
