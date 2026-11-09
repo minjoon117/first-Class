@@ -1504,3 +1504,153 @@ button {
         padding: 22px 20px;
     }
 }
+
+
+/* ===== APP 영역: 전달된 레퍼런스 이미지 구성 ===== */
+.app-download {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 42px 5.8%;
+    background: #fff;
+}
+.app-download .app-panel {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 250px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr) 265px;
+    align-items: center;
+    column-gap: 30px;
+    background: #f7f8fa;
+}
+.app-download .app-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.app-download .app-left h2 {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px;
+    color: #111;
+    font-size: 26px;
+    line-height: 1.2;
+}
+.app-download .app-left h2 .red-bar {
+    width: 5px;
+    height: 30px;
+    margin-right: 10px;
+    background: #c8102e;
+}
+.app-download .app-phone-image {
+    display: block;
+    width: 184px;
+    height: 184px;
+    margin-left: 4px;
+    object-fit: contain;
+    object-position: center;
+}
+.app-download .app-benefits {
+    min-width: 0;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 12px;
+    padding: 0 30px 0 0;
+    border-right: 1px solid #d7d9dc;
+}
+.app-download .app-benefit {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+}
+.app-download .app-benefit-icon {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #f8e9eb;
+    color: #c8102e;
+    font-size: 23px;
+}
+.app-download .app-benefit h3 {
+    margin: 0 0 6px;
+    color: #111;
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+.app-download .app-benefit p {
+    margin: 0;
+    color: #aaa;
+    font-size: 11px;
+    line-height: 1.45;
+}
+.app-download .app-store-links {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 26px;
+    padding: 0 8px 0 10px;
+    border: 0;
+}
+.app-download .app-store-btn {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border: 1px solid #d0d2d5;
+    border-radius: 9px;
+    background: #fff;
+    color: #111;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+}
+.app-download .app-store-btn svg {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+}
+.app-download .app-store-btn .material-symbols-outlined {
+    margin-left: auto;
+    font-size: 20px;
+}
+@media (max-width: 900px) {
+    .app-download .app-panel {
+        grid-template-columns: 210px minmax(0,1fr) 210px;
+        column-gap: 18px;
+        padding: 16px;
+    }
+    .app-download .app-benefits { padding-right: 16px; }
+    .app-download .app-benefit { gap: 10px; }
+    .app-download .app-benefit p { font-size: 10px; }
+}
+@media (max-width: 680px) {
+    .app-download { padding: 24px 16px; }
+    .app-download .app-panel {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 22px 20px;
+    }
+    .app-download .app-left { align-items: center; }
+    .app-download .app-benefits {
+        min-height: 0;
+        padding: 20px 0;
+        border-right: 0;
+        border-top: 1px solid #d7d9dc;
+        border-bottom: 1px solid #d7d9dc;
+    }
+    .app-download .app-store-links { padding: 0; gap: 12px; }
+}
