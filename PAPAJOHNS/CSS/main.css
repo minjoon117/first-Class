@@ -602,11 +602,14 @@ button {
 .app-content {
     max-width: 1100px;
     margin: 0 auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .app-full-image {
     width: 100%;
+    max-width: 1000px;
     height: auto;
     display: block;
     border-radius: 20px;
