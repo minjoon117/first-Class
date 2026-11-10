@@ -595,30 +595,21 @@ button {
 
 /* ===== APP ===== */
 .app-download {
-    width: 100%;
-    max-width: 1920px;
-    height: 720px;
-    margin: 0 auto;
     background: #f0f0f0;
+    padding: 60px 5%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    box-sizing: border-box;
+    align-items: center;
 }
 
 .app-image-wrap {
-    width: 1720px;
-    max-width: 95%;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 1100px;
+    width: 100%;
 }
 
 .app-full-image {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
     display: block;
     border-radius: 20px;
 }
