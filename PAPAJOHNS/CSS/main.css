@@ -1892,3 +1892,21 @@ button {
         padding: 24px 20px;
     }
 }
+
+
+/* APP 이미지 원본 크기에 맞춰 확대 흐림 방지 */
+.app-download {
+    padding: 0;
+    background: #fff;
+}
+.app-download .app-image-wrap {
+    width: 100%;
+    max-width: 959px;
+    margin: 0 auto;
+}
+.app-download .app-full-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
