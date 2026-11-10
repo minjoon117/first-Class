@@ -595,21 +595,20 @@ button {
 
 /* ===== APP ===== */
 .app-download {
-    width: 1920px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 1920px;
     height: 720px;
     margin: 0 auto;
-    background: #f7f7f7;
+    background: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 5%;
     box-sizing: border-box;
 }
 
 .app-image-wrap {
     width: 1720px;
-    max-width: 100%;
+    max-width: 95%;
     height: 500px;
     display: flex;
     align-items: center;
@@ -623,7 +622,6 @@ button {
     display: block;
     border-radius: 20px;
 }
-
 .phone-mockup {
     width: 220px;
     height: 400px;
