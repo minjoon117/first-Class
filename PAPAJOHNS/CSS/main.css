@@ -1948,3 +1948,13 @@ button {
         width: calc(100% - 32px);
     }
 }
+
+
+/* APP 바깥 여백을 조금 줄임 */
+.app-download {
+    width: 100%;
+    max-width: 1720px;
+    height: 620px;
+    min-height: 620px;
+    margin: 0 auto;
+}
