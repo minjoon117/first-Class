@@ -1910,3 +1910,41 @@ button {
     height: auto;
     border-radius: 20px;
 }
+
+
+/* APP 섹션 바깥 여백 영역 크기 및 모서리 수정 */
+.app-download {
+    width: 100%;
+    max-width: 1920px;
+    height: 720px;
+    min-height: 720px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e5;
+}
+.app-download .app-image-wrap {
+    width: min(1720px, calc(100% - 100px));
+    max-width: 1720px;
+    margin: 0 auto;
+}
+.app-download .app-full-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+}
+@media (max-width: 680px) {
+    .app-download {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 30px 0;
+    }
+    .app-download .app-image-wrap {
+        width: calc(100% - 32px);
+    }
+}
