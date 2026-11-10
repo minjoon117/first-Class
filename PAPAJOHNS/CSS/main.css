@@ -1958,3 +1958,41 @@ button {
     min-height: 620px;
     margin: 0 auto;
 }
+
+
+/* APP 섹션 크기 완화 및 이미지 표시 크기 조정 */
+.app-download {
+    width: 100%;
+    max-width: 1920px;
+    height: 600px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e5;
+}
+.app-download .app-image-wrap {
+    width: min(1500px, calc(100% - 100px));
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.app-download .app-full-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+}
+@media (max-width: 680px) {
+    .app-download {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 28px 0;
+    }
+    .app-download .app-image-wrap {
+        width: calc(100% - 32px);
+    }
+}
