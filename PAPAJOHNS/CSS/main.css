@@ -593,6 +593,15 @@ button {
     background: #fff;
 }
 
+
+.phone-mockup {
+    width: 220px;
+    height: 400px;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #f0f0f0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
 /* ===== APP ===== */
 .app-download {
     background: #f0f0f0;
@@ -612,14 +621,6 @@ button {
     height: auto;
     display: block;
     border-radius: 20px;
-}
-.phone-mockup {
-    width: 220px;
-    height: 400px;
-    border-radius: 28px;
-    overflow: hidden;
-    background: #f0f0f0;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .phone-mockup img {
