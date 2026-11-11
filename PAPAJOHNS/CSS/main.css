@@ -1996,3 +1996,40 @@ button {
         width: calc(100% - 32px);
     }
 }
+
+
+/* APP 영역: 넓은 화면에서도 1720px로 가운데 고정 */
+.app-download {
+    width: 100%;
+    max-width: none;
+    height: 600px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e5;
+}
+.app-download .app-image-wrap {
+    width: min(1720px, calc(100% - 48px));
+    max-width: 1720px;
+    margin: 0 auto;
+}
+.app-download .app-full-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+}
+@media (max-width: 680px) {
+    .app-download {
+        height: auto;
+        min-height: 0;
+        padding: 28px 0;
+    }
+    .app-download .app-image-wrap {
+        width: calc(100% - 32px);
+    }
+}
