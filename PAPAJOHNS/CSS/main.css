@@ -621,8 +621,10 @@ button {
     height: auto;
     display: block;
     border-radius: 20px;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 .phone-mockup img {
     width: 100%;
