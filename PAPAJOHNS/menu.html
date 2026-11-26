@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메뉴 - 파파존스</title>
-    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/main.css?v=20261126-menu-scroll">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
 </head>
 <body>
-    <!-- 상단 유틸 바 -->
     <div class="top-util">
         <div class="top-util-inner">
             <div class="top-util-right">
@@ -19,24 +18,23 @@
         </div>
     </div>
 
-    <!-- 헤더 -->
     <header class="site-header">
         <a class="brand-logo" href="./index.html">PAPA JOHNS</a>
-
         <nav class="main-nav">
             <div class="nav-item">
                 <a href="./menu.html" class="active">메뉴</a>
                 <ul class="dropdown">
-                    <li><a href="./menu.html">피자</a></li>
-                    <li><a href="#menu-promotion">프로모션</a></li>
-                    <li><a href="#menu-half">하프앤하프</a></li>
-                    <li><a href="#menu-side">사이드</a></li>
-                    <li><a href="#menu-drink">음료/소스</a></li>
+                    <li><a href="#pizza-list">피자</a></li>
+                    <li><a href="#half-menu">하프앤하프</a></li>
+                    <li><a href="#side-menu">사이드</a></li>
+                    <li><a href="#drink-menu">음료/소스</a></li>
+                    <li><a href="#goods-menu">굿즈/한정 상품</a></li>
                 </ul>
             </div>
             <div class="nav-item">
                 <a href="#events">이벤트·할인</a>
                 <ul class="dropdown">
+                    <li><a href="#promotion">프로모션</a></li>
                     <li><a href="#events-ongoing">진행중 이벤트</a></li>
                     <li><a href="#events-partner">제휴 할인</a></li>
                     <li><a href="#events-past">지난 이벤트</a></li>
@@ -63,26 +61,18 @@
                 </ul>
             </div>
         </nav>
-
         <div class="header-tools">
             <div class="nav-item">
-                <a href="#mypage" title="마이페이지">
-                    <span class="material-symbols-outlined">person</span>
-                </a>
+                <a href="#mypage" title="마이페이지"><span class="material-symbols-outlined">person</span></a>
             </div>
             <div class="nav-item">
-                <a href="#language" title="언어 선택">
-                    <span class="material-symbols-outlined">language</span>
-                </a>
+                <a href="#language" title="언어 선택"><span class="material-symbols-outlined">language</span></a>
             </div>
-            <a href="#cart" title="장바구니">
-                <span class="material-symbols-outlined">shopping_cart</span>
-            </a>
+            <a href="#cart" title="장바구니"><span class="material-symbols-outlined">shopping_cart</span></a>
         </div>
     </header>
 
-    <main>
-        <!-- 메뉴 히어로 -->
+    <main class="menu-page">
         <section class="menu-hero">
             <div class="menu-hero-text">
                 <p class="menu-hero-sub">더 맛있는 피자, 파파존스</p>
@@ -90,35 +80,32 @@
                 <p class="menu-hero-desc">파파존스의 다양한 피자를 만나보세요.</p>
             </div>
             <div class="menu-hero-img">
-                <img src="./img/수퍼 파파스.png" alt="피자 메뉴">
+                <img src="./img/%EC%88%98%ED%8D%BC%20%ED%8C%8C%ED%8C%8C%EC%8A%A4.png" alt="수퍼 파파스 피자">
             </div>
         </section>
 
-        <!-- 카테고리 탭 -->
-        <section class="menu-category">
+        <section class="menu-category" aria-label="메뉴 카테고리">
             <div class="category-tabs">
-                <button class="cat-tab active">피자</button>
-                <button class="cat-tab">프로모션</button>
-                <button class="cat-tab">하프앤하프</button>
-                <button class="cat-tab">사이드</button>
-                <button class="cat-tab">음료/소스</button>
-                <button class="cat-tab">매장 프로모션</button>
+                <a class="cat-tab active" href="#pizza-list">피자</a>
+                <a class="cat-tab" href="#half-menu">하프앤하프</a>
+                <a class="cat-tab" href="#side-menu">사이드</a>
+                <a class="cat-tab" href="#drink-menu">음료/소스</a>
+                <a class="cat-tab" href="#goods-menu">굿즈/한정 상품</a>
             </div>
         </section>
 
-        <!-- 필터 -->
-        <section class="menu-filter">
+        <section class="menu-filter" aria-label="피자 메뉴 필터">
             <div class="filter-left">
                 <span class="filter-label">필터</span>
-                <button class="filter-btn active">전체</button>
-                <button class="filter-btn">NEW</button>
-                <button class="filter-btn">BEST</button>
-                <button class="filter-btn">스페셜티</button>
-                <button class="filter-btn">클래식</button>
+                <button class="filter-btn active" type="button">전체</button>
+                <button class="filter-btn" type="button">NEW</button>
+                <button class="filter-btn" type="button">BEST</button>
+                <button class="filter-btn" type="button">스페셜티</button>
+                <button class="filter-btn" type="button">클래식</button>
             </div>
             <div class="filter-right">
-                <span>정렬 기준</span>
-                <select>
+                <label for="menu-sort">정렬 기준</label>
+                <select id="menu-sort">
                     <option>인기순</option>
                     <option>가격 낮은순</option>
                     <option>가격 높은순</option>
@@ -126,98 +113,105 @@
             </div>
         </section>
 
-        <!-- 메뉴 리스트 -->
-        <section class="menu-list">
+        <section class="menu-list" id="pizza-list">
             <div class="menu-list-grid">
-                <!-- 카드 1 -->
                 <article class="menu-list-card">
-                    <div class="menu-list-img">
-                        <img src="./img/수퍼 파파스.png" alt="슈퍼 파파스">
-                    </div>
+                    <div class="menu-list-img"><img src="./img/%EC%88%98%ED%8D%BC%20%ED%8C%8C%ED%8C%8C%EC%8A%A4.png" alt="수퍼 파파스"></div>
                     <div class="menu-list-info">
-                        <h3>슈퍼 파파스 <span class="tag best">BEST</span></h3>
+                        <h3>수퍼 파파스 <span class="tag best">BEST</span></h3>
                         <p>신선한 토마토 소스 위에 각종 고기와 채소가 듬뿍 토핑된 파파존스의 베스트 피자</p>
-                        <div class="menu-list-price">
-                            <span>L 28,500원</span>
-                            <span>F 33,900원</span>
-                        </div>
-                        <div class="menu-list-btns">
-                            <a href="#" class="btn-detail">상세 주문</a>
-                            <a href="#" class="btn-quick">간편 주문</a>
-                        </div>
+                        <div class="menu-list-price"><span>L 28,500원</span><span>F 33,900원</span></div>
+                        <div class="menu-list-btns"><a href="#order-super-papas" class="btn-detail">상세 주문</a><a href="#quick-super-papas" class="btn-quick">간편 주문</a></div>
                     </div>
                 </article>
 
-                <!-- 카드 2 -->
                 <article class="menu-list-card">
-                    <div class="menu-list-img">
-                        <img src="./img/존스 페이버릿.png" alt="존스 페이버릿">
+                    <div class="menu-list-img"><img src="./img/%EB%B6%88%EB%8B%AD.png" alt="불닭 까르보 치킨"></div>
+                    <div class="menu-list-info">
+                        <h3>불닭 까르보 치킨 <span class="tag new">NEW</span></h3>
+                        <p>매콤한 불닭 까르보 소스와 치킨 토핑이 어우러진 피자</p>
+                        <div class="menu-list-price"><span>L 29,500원</span><span>F 34,900원</span></div>
+                        <div class="menu-list-btns"><a href="#order-buldak" class="btn-detail">상세 주문</a><a href="#quick-buldak" class="btn-quick">간편 주문</a></div>
                     </div>
+                </article>
+
+                <article class="menu-list-card">
+                    <div class="menu-list-img"><img src="./img/%EA%B3%A8%EB%93%A0%20%EC%B2%B4%EB%8B%A4.png" alt="골든 체다 파퍼"></div>
+                    <div class="menu-list-info">
+                        <h3>골든 체다 파퍼 <span class="tag new">NEW</span></h3>
+                        <p>진한 체다 치즈의 풍미를 살린 고소한 치즈 피자</p>
+                        <div class="menu-list-price"><span>L 31,500원</span><span>F 36,900원</span></div>
+                        <div class="menu-list-btns"><a href="#order-cheddar" class="btn-detail">상세 주문</a><a href="#quick-cheddar" class="btn-quick">간편 주문</a></div>
+                    </div>
+                </article>
+
+                <article class="menu-list-card">
+                    <div class="menu-list-img"><img src="./img/%EC%8A%A4%ED%8C%8C%EC%9D%B4%EC%8B%9C%20%EB%A9%95%EC%8B%9C%EC%B9%B8.png" alt="스파이시 멕시칸"></div>
+                    <div class="menu-list-info">
+                        <h3>스파이시 멕시칸</h3>
+                        <p>매콤한 소스와 풍성한 토핑이 어우러진 스파이시 피자</p>
+                        <div class="menu-list-price"><span>가격 정보 확인</span></div>
+                        <div class="menu-list-btns"><a href="#order-mexican" class="btn-detail">상세 주문</a><a href="#quick-mexican" class="btn-quick">간편 주문</a></div>
+                    </div>
+                </article>
+
+                <article class="menu-list-card">
+                    <div class="menu-list-img"><img src="./img/%EC%A1%B4%EC%8A%A4%20%ED%8E%98%EC%9D%B4%EB%B2%84%EB%A6%BF.png" alt="존스 페이버릿"></div>
                     <div class="menu-list-info">
                         <h3>존스 페이버릿 <span class="tag best">BEST</span></h3>
-                        <p>베이컨과 소시지, 페퍼로니가 듬뿍 올라간 풍미 가득한 베스트 피자</p>
-                        <div class="menu-list-price">
-                            <span>L 29,500원</span>
-                            <span>F 34,900원</span>
-                        </div>
-                        <div class="menu-list-btns">
-                            <a href="#" class="btn-detail">상세 주문</a>
-                            <a href="#" class="btn-quick">간편 주문</a>
-                        </div>
+                        <p>베이컨과 소시지, 페퍼로니가 듬뿍 올라간 풍미 가득한 피자</p>
+                        <div class="menu-list-price"><span>L 29,500원</span><span>F 34,900원</span></div>
+                        <div class="menu-list-btns"><a href="#order-johns" class="btn-detail">상세 주문</a><a href="#quick-johns" class="btn-quick">간편 주문</a></div>
                     </div>
                 </article>
 
-                <!-- 카드 3 -->
                 <article class="menu-list-card">
-                    <div class="menu-list-img">
-                        <img src="./img/올미트.png" alt="올미트">
+                    <div class="menu-list-img"><img src="./img/%EC%95%84%EC%9D%B4%EB%A6%AC%EC%89%AC%20%ED%8F%AC%ED%85%8C%EC%9D%B4%ED%86%A0.png" alt="아이리쉬 포테이토"></div>
+                    <div class="menu-list-info">
+                        <h3>아이리쉬 포테이토 <span class="tag best">BEST</span></h3>
+                        <p>고소한 감자와 베이컨, 치즈가 조화를 이루는 인기 피자</p>
+                        <div class="menu-list-price"><span>L 27,500원</span><span>F 32,900원</span></div>
+                        <div class="menu-list-btns"><a href="#order-irish" class="btn-detail">상세 주문</a><a href="#quick-irish" class="btn-quick">간편 주문</a></div>
                     </div>
+                </article>
+
+                <article class="menu-list-card">
+                    <div class="menu-list-img"><img src="./img/%EC%98%AC%EB%AF%B8%ED%8A%B8.png" alt="올미트"></div>
                     <div class="menu-list-info">
                         <h3>올미트 <span class="tag best">BEST</span></h3>
-                        <p>페퍼로니, 햄, 베이컨, 소시지 등 다양한 미트가 가득한 육즙 가득한 피자</p>
-                        <div class="menu-list-price">
-                            <span>L 29,500원</span>
-                            <span>F 34,900원</span>
-                        </div>
-                        <div class="menu-list-btns">
-                            <a href="#" class="btn-detail">상세 주문</a>
-                            <a href="#" class="btn-quick">간편 주문</a>
-                        </div>
+                        <p>페퍼로니, 햄, 베이컨, 소시지 등 다양한 미트 토핑을 즐길 수 있는 피자</p>
+                        <div class="menu-list-price"><span>L 29,500원</span><span>F 34,900원</span></div>
+                        <div class="menu-list-btns"><a href="#order-allmeat" class="btn-detail">상세 주문</a><a href="#quick-allmeat" class="btn-quick">간편 주문</a></div>
                     </div>
                 </article>
 
-                <!-- 카드 4 -->
                 <article class="menu-list-card">
-                    <div class="menu-list-img">
-                        <img src="./img/스파이시 치킨랜치.png" alt="스파이시 치킨 랜치">
-                    </div>
+                    <div class="menu-list-img"><img src="./img/%EC%8A%A4%ED%8C%8C%EC%9D%B4%EC%8B%9C%20%EC%B9%98%ED%82%A8%EB%9E%9C%EC%B9%98.png" alt="스파이시 치킨 랜치"></div>
                     <div class="menu-list-info">
                         <h3>스파이시 치킨 랜치</h3>
-                        <p>부드러운 치킨과 랜치 소스, 신선한 야채가 어우러진 담백한 피자</p>
-                        <div class="menu-list-price">
-                            <span>L 29,500원</span>
-                            <span>F 34,900원</span>
-                        </div>
-                        <div class="menu-list-btns">
-                            <a href="#" class="btn-detail">상세 주문</a>
-                            <a href="#" class="btn-quick">간편 주문</a>
-                        </div>
+                        <p>부드러운 치킨과 랜치 소스, 신선한 야채가 어우러진 피자</p>
+                        <div class="menu-list-price"><span>L 29,500원</span><span>F 34,900원</span></div>
+                        <div class="menu-list-btns"><a href="#order-ranch" class="btn-detail">상세 주문</a><a href="#quick-ranch" class="btn-quick">간편 주문</a></div>
                     </div>
                 </article>
             </div>
         </section>
+
+        <div class="menu-coming-soon" id="half-menu"><span>하프앤하프</span><p>메뉴 구성 준비 중입니다.</p></div>
+        <div class="menu-coming-soon" id="side-menu"><span>사이드</span><p>메뉴 구성 준비 중입니다.</p></div>
+        <div class="menu-coming-soon" id="drink-menu"><span>음료/소스</span><p>메뉴 구성 준비 중입니다.</p></div>
+        <div class="menu-coming-soon" id="goods-menu"><span>굿즈/한정 상품</span><p>상품 구성 준비 중입니다.</p></div>
     </main>
 
-    <!-- 푸터 -->
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-logo">PAPA JOHNS</div>
             <div class="footer-info">
                 <p>주소 : 서울시 강남구 압구정로 210 융기빌딩 4층</p>
                 <p>콜센터 주문 : 1577-8080 | 온라인 이용 문의 : 1566-0889 | 고객센터 : 1577-8142</p>
-                <p>대표이사 : 서창우 | 개인정보관리책임자 : 전용관 | 통신판매신고 : 강남11495호 | 사업자등록번호 : 211-87-25621 1577-8142</p>
+                <p>대표이사 : 서창우 | 개인정보관리책임자 : 전용관 | 통신판매신고 : 강남11495호 | 사업자등록번호 : 211-87-25621</p>
             </div>
-             <div class="footer-links">
+            <div class="footer-links">
                 <a href="#">이용약관</a>
                 <a href="#">개인정보처리방침</a>
                 <a href="#">위치기반서비스 이용약관</a>
