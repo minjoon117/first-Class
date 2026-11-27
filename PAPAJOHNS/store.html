@@ -1,1 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매장찾기 - 파파존스</title>
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
+    <style>
+        .store-page {
+            max-width: 1100px;
+            margin: 40px auto 80px;
+            padding: 0 5%;
+        }
+        .store-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 32px;
+        }
+        .store-tab {
+            padding: 14px 36px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #f0f0f0;
+            color: #666;
+        }
+        .store-tab:first-child { border-radius: 10px 0 0 10px; }
+        .store-tab:last-child { border-radius: 0 10px 10px 0; }
+        .store-tab.active {
+            background: #222;
+            color: #fff;
+        }
+        .store-panel { display: none; }
+        .store-panel.active { display: block; }
 
+        .store-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            min-height: 480px;
+        }
+        .store-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .store-selects {
+            display: flex;
+            gap: 10px;
+        }
+        .store-selects select {
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #fff;
+        }
+        .store-list {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .store-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .store-item:last-child { border-bottom: none; }
+        .store-item:hover { background: #fafafa; }
+        .store-item.active {
+            background: #fff5f5;
+            border: 1px solid var(--color-brand-red);
+            border-radius: 8px;
+            margin: 4px;
+        }
+        .store-item input { margin-top: 4px; accent-color: var(--color-brand-red); }
+        .store-item-info strong {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        .store-item-info strong a {
+            color: #0066cc;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .store-item-info p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .store-right {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 24px;
+            background: #fff;
+        }
+        .store-right.empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 15px;
+        }
+        .store-detail h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .store-detail p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .store-map {
+            margin-top: 16px;
+            height: 220px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .store-search-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .store-search-row input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .store-search-row button {
+            padding: 12px 24px;
+            background: #222;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .store-empty-msg {
+            color: #999;
+            font-size: 14px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .store-order-btn {
+            display: block;
+            width: 280px;
+            margin: 32px auto 0;
+            padding: 16px 0;
+            background: var(--color-brand-red);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+        }
+        .store-order-btn:disabled {
+            background: #f5a5a8;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .store-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-util">
+        <div class="top-util-inner">
+            <div class="top-util-right">
+                <a href="#login">로그인</a>
+                <span class="divider">|</span>
+                <a href="#signup">회원가입</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <a class="brand-logo" href="./index.html">PAPA JOHNS</a>
+        <nav class="main-nav">
+            <div class="nav-item"><a href="./menu.html">메뉴</a></div>
+            <div class="nav-item"><a href="#events">이벤트·할인</a></div>
+            <div class="nav-item"><a href="#coupon">E-쿠폰주문</a></div>
+            <div class="nav-item"><a href="./store.html" class="active">매장찾기</a></div>
+            <div class="nav-item"><a href="#customer">고객센터</a></div>
+            <div class="nav-item"><a href="#company">회사소개</a></div>
+        </nav>
+        <div class="header-tools">
+            <a href="#mypage"><span class="material-symbols-outlined">person</span></a>
+            <a href="#language"><span class="material-symbols-outlined">language</span></a>
+            <a href="#cart"><span class="material-symbols-outlined">shopping_cart</span></a>
+        </div>
+    </header>
+
+    <main class="store-page">
+        <!-- 탭 -->
+        <div class="store-tabs">
+            <button class="store-tab active" data-tab="region">지역으로 검색</button>
+            <button class="store-tab" data-tab="name">매장명으로 검색</button>
+        </div>
+
+        <!-- 지역으로 검색 -->
+        <div class="store-panel active" id="panel-region">
+            <div class="store-layout">
+                <div class="store-left">
+                    <div class="store-selects">
+                        <select id="sido">
+                            <option value="">시/도 선택</option>
+                            <option value="경기">경기도</option>
+                            <option value="서울">서울특별시</option>
+                            <option value="인천">인천광역시</option>
+                            <option value="강원">강원도</option>
+                        </select>
+                        <select id="gugun">
+                            <option value="">구/군 선택</option>
+                            <option value="수원">수원시</option>
+                            <option value="강동">강동구</option>
+                            <option value="남구">남구</option>
+                        </select>
+                    </div>
+                    <div class="store-list" id="storeList">
+                        <label class="store-item active">
+                            <input type="radio" name="store" value="kt" checked>
+                            <div class="store-item-info">
+                                <strong>KT위즈파크점 <a href="tel:031-253-8088">031-253-8088</a></strong>
+                                <p>경기도 수원시 장안구 경수대로 893 KT위즈파크, 5층</p>
+                            </div>
+                        </label>
+                        <label class="store-item">
+                            <input type="radio" name="store" value="ssg">
+                            <div class="store-item-info">
+                                <strong>SSG 랜더스점 <a href="tel:1577-8080">1577-8080</a></strong>
+                                <p>인천광역시 남구 매소홀로 618 (문학동)</p>
+                            </div>
+                        </label>
+                        <label class="store-item">
+                            <input type="radio" name="store" value="gangdong">
+                            <div class="store-item-info">
+                                <strong>강동구청점 <a href="tel:02-471-4677">02-471-4677</a></strong>
+                                <p>서울특별시 강동구 성내로 90</p>
+                            </div>
+                        </label>
+                        <label class="store-item">
+                            <input type="radio" name="store" value="gangneung">
+                            <div class="store-item-info">
+                                <strong>강릉점 <a href="tel:033-645-5445">033-645-5445</a></strong>
+                                <p>강원도 강릉시 솔올로 25 1층</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="store-right" id="storeDetail">
+                    <div class="store-detail">
+                        <h3>📍 파파존스 KT위즈파크점</h3>
+                        <p><strong>영업시간</strong> 매일 11:00 ~ 21:30</p>
+                        <p><strong>매장타입</strong> 직접 방문</p>
+                        <p><strong>주차여부</strong> 주차 불가</p>
+                        <div class="store-map">지도 영역 (KT위즈파크점)</div>
+                    </div>
+                </div>
+            </div>
+            <button class="store-order-btn" id="orderBtn">포장 주문하기</button>
+        </div>
+
+        <!-- 매장명으로 검색 -->
+        <div class="store-panel" id="panel-name">
+            <div class="store-layout">
+                <div class="store-left">
+                    <div class="store-search-row">
+                        <input type="text" id="storeNameInput" placeholder="매장명을 입력해 주세요.">
+                        <button type="button" id="nameSearchBtn">검색</button>
+                    </div>
+                    <div class="store-empty-msg" id="nameListMsg">매장명을 입력하여 검색해 주세요.</div>
+                    <div class="store-list" id="nameStoreList" style="display:none;"></div>
+                </div>
+                <div class="store-right empty" id="nameDetail">
+                    매장을 선택해 주세요.
+                </div>
+            </div>
+            <button class="store-order-btn" id="orderBtnName" disabled>포장 주문하기</button>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-logo">PAPA JOHNS</div>
+            <p class="copyright">Copyright © 2020 PAPAJOHNS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 탭 전환
+        const tabs = document.querySelectorAll('.store-tab');
+        const panels = document.querySelectorAll('.store-panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // 매장 데이터
+        const stores = {
+            kt: {
+                name: '파파존스 KT위즈파크점',
+                time: '매일 11:00 ~ 21:30',
+                type: '직접 방문',
+                parking: '주차 불가',
+                map: '지도 영역 (KT위즈파크점)'
+            },
+            ssg: {
+                name: '파파존스 SSG 랜더스점',
+                time: '매일 11:00 ~ 22:00',
+                type: '직접 방문',
+                parking: '주차 가능',
+                map: '지도 영역 (SSG 랜더스점)'
+            },
+            gangdong: {
+                name: '파파존스 강동구청점',
+                time: '매일 11:00 ~ 22:00',
+                type: '직접 방문',
+                parking: '주차 가능',
+                map: '지도 영역 (강동구청점)'
+            },
+            gangneung: {
+                name: '파파존스 강릉점',
+                time: '매일 11:00 ~ 21:30',
+                type: '직접 방문',
+                parking: '주차 가능',
+                map: '지도 영역 (강릉점)'
+            }
+        };
+
+        // 지역 검색 - 매장 선택
+        document.querySelectorAll('#storeList input[name="store"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('#storeList .store-item').forEach(item => item.classList.remove('active'));
+                this.closest('.store-item').classList.add('active');
+                const data = stores[this.value];
+                document.getElementById('storeDetail').innerHTML = `
+                    <div class="store-detail">
+                        <h3>📍 ${data.name}</h3>
+                        <p><strong>영업시간</strong> ${data.time}</p>
+                        <p><strong>매장타입</strong> ${data.type}</p>
+                        <p><strong>주차여부</strong> ${data.parking}</p>
+                        <div class="store-map">${data.map}</div>
+                    </div>
+                `;
+                document.getElementById('orderBtn').disabled = false;
+            });
+        });
+
+        // 포장 주문 버튼
+        document.getElementById('orderBtn').addEventListener('click', () => {
+            alert('선택한 매장으로 포장 주문을 진행합니다.');
+        });
+
+        // 매장명 검색
+        document.getElementById('nameSearchBtn').addEventListener('click', () => {
+            const keyword = document.getElementById('storeNameInput').value.trim();
+            const listEl = document.getElementById('nameStoreList');
+            const msgEl = document.getElementById('nameListMsg');
+            const detailEl = document.getElementById('nameDetail');
+            const orderBtn = document.getElementById('orderBtnName');
+
+            if (!keyword) {
+                msgEl.style.display = 'block';
+                msgEl.textContent = '매장명을 입력하여 검색해 주세요.';
+                listEl.style.display = 'none';
+                detailEl.className = 'store-right empty';
+                detailEl.textContent = '매장을 선택해 주세요.';
+                orderBtn.disabled = true;
+                return;
+            }
+
+            // 간단 검색 시뮬레이션
+            const results = Object.entries(stores).filter(([key, s]) => s.name.includes(keyword));
+            if (results.length === 0) {
+                msgEl.style.display = 'block';
+                msgEl.textContent = '검색 결과가 없습니다.';
+                listEl.style.display = 'none';
+                detailEl.className = 'store-right empty';
+                detailEl.textContent = '매장을 선택해 주세요.';
+                orderBtn.disabled = true;
+                return;
+            }
+
+            msgEl.style.display = 'none';
+            listEl.style.display = 'block';
+            listEl.innerHTML = results.map(([key, s]) => `
+                <label class="store-item">
+                    <input type="radio" name="storeName" value="${key}">
+                    <div class="store-item-info">
+                        <strong>${s.name}</strong>
+                    </div>
+                </label>
+            `).join('');
+
+            listEl.querySelectorAll('input').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    listEl.querySelectorAll('.store-item').forEach(i => i.classList.remove('active'));
+                    this.closest('.store-item').classList.add('active');
+                    const data = stores[this.value];
+                    detailEl.className = 'store-right';
+                    detailEl.innerHTML = `
+                        <div class="store-detail">
+                            <h3>📍 ${data.name}</h3>
+                            <p><strong>영업시간</strong> ${data.time}</p>
+                            <p><strong>매장타입</strong> ${data.type}</p>
+                            <p><strong>주차여부</strong> ${data.parking}</p>
+                            <div class="store-map">${data.map}</div>
+                        </div>
+                    `;
+                    orderBtn.disabled = false;
+                });
+            });
+        });
+
+        document.getElementById('orderBtnName').addEventListener('click', () => {
+            if (!document.getElementById('orderBtnName').disabled) {
+                alert('선택한 매장으로 포장 주문을 진행합니다.');
+            }
+        });
+    </script>
+</body>
+</html>
