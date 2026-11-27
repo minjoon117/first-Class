@@ -122,10 +122,33 @@
             margin-bottom: 8px;
             line-height: 1.5;
         }
-        .store-map {
-            margin-top: 16px;
-            border-radius: 10px;
-            overflow: hidden;
+      .store-map {
+    margin-top: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 240px;
+    position: relative;
+    cursor: grab;
+    user-select: none;
+    background: #f0f0f0;
+}
+
+.store-map:active {
+    cursor: grabbing;
+}
+
+.store-map img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center center;
+    pointer-events: none;
+    transition: none;
+}
         }
         .store-map img {
             width: 100%;
