@@ -15,7 +15,6 @@
         .store-tabs {
             display: flex;
             justify-content: center;
-            gap: 0;
             margin-bottom: 32px;
         }
         .store-tab {
@@ -72,17 +71,19 @@
             padding: 16px;
             border-bottom: 1px solid #f0f0f0;
             cursor: pointer;
-            transition: background 0.15s;
         }
         .store-item:last-child { border-bottom: none; }
         .store-item:hover { background: #fafafa; }
         .store-item.active {
             background: #fff5f5;
-            border: 1px solid var(--color-brand-red);
+            outline: 1px solid var(--color-brand-red);
             border-radius: 8px;
             margin: 4px;
         }
-        .store-item input { margin-top: 4px; accent-color: var(--color-brand-red); }
+        .store-item input {
+            margin-top: 4px;
+            accent-color: var(--color-brand-red);
+        }
         .store-item-info strong {
             display: block;
             font-size: 15px;
@@ -91,7 +92,6 @@
         .store-item-info strong a {
             color: #0066cc;
             text-decoration: underline;
-            font-weight: 600;
         }
         .store-item-info p {
             font-size: 13px;
@@ -115,9 +115,6 @@
         .store-detail h3 {
             font-size: 18px;
             margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
         .store-detail p {
             font-size: 14px;
@@ -127,14 +124,14 @@
         }
         .store-map {
             margin-top: 16px;
-            height: 220px;
-            background: #f5f5f5;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 14px;
+            overflow: hidden;
+        }
+        .store-map img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
         }
 
         .store-search-row {
@@ -218,7 +215,6 @@
     </header>
 
     <main class="store-page">
-        <!-- 탭 -->
         <div class="store-tabs">
             <button class="store-tab active" data-tab="region">지역으로 검색</button>
             <button class="store-tab" data-tab="name">매장명으로 검색</button>
@@ -229,14 +225,14 @@
             <div class="store-layout">
                 <div class="store-left">
                     <div class="store-selects">
-                        <select id="sido">
+                        <select>
                             <option value="">시/도 선택</option>
                             <option value="경기">경기도</option>
                             <option value="서울">서울특별시</option>
                             <option value="인천">인천광역시</option>
                             <option value="강원">강원도</option>
                         </select>
-                        <select id="gugun">
+                        <select>
                             <option value="">구/군 선택</option>
                             <option value="수원">수원시</option>
                             <option value="강동">강동구</option>
@@ -280,7 +276,9 @@
                         <p><strong>영업시간</strong> 매일 11:00 ~ 21:30</p>
                         <p><strong>매장타입</strong> 직접 방문</p>
                         <p><strong>주차여부</strong> 주차 불가</p>
-                        <div class="store-map">지도 영역 (KT위즈파크점)</div>
+                        <div class="store-map">
+                            <img src="./img/지도.png" alt="매장 지도">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -314,7 +312,6 @@
     </footer>
 
     <script>
-        // 탭 전환
         const tabs = document.querySelectorAll('.store-tab');
         const panels = document.querySelectorAll('.store-panel');
         tabs.forEach(tab => {
@@ -326,63 +323,60 @@
             });
         });
 
-        // 매장 데이터
         const stores = {
             kt: {
                 name: '파파존스 KT위즈파크점',
                 time: '매일 11:00 ~ 21:30',
                 type: '직접 방문',
-                parking: '주차 불가',
-                map: '지도 영역 (KT위즈파크점)'
+                parking: '주차 불가'
             },
             ssg: {
                 name: '파파존스 SSG 랜더스점',
                 time: '매일 11:00 ~ 22:00',
                 type: '직접 방문',
-                parking: '주차 가능',
-                map: '지도 영역 (SSG 랜더스점)'
+                parking: '주차 가능'
             },
             gangdong: {
                 name: '파파존스 강동구청점',
                 time: '매일 11:00 ~ 22:00',
                 type: '직접 방문',
-                parking: '주차 가능',
-                map: '지도 영역 (강동구청점)'
+                parking: '주차 가능'
             },
             gangneung: {
                 name: '파파존스 강릉점',
                 time: '매일 11:00 ~ 21:30',
                 type: '직접 방문',
-                parking: '주차 가능',
-                map: '지도 영역 (강릉점)'
+                parking: '주차 가능'
             }
         };
 
-        // 지역 검색 - 매장 선택
+        function renderDetail(data) {
+            return `
+                <div class="store-detail">
+                    <h3>📍 ${data.name}</h3>
+                    <p><strong>영업시간</strong> ${data.time}</p>
+                    <p><strong>매장타입</strong> ${data.type}</p>
+                    <p><strong>주차여부</strong> ${data.parking}</p>
+                    <div class="store-map">
+                        <img src="./img/지도.png" alt="매장 지도">
+                    </div>
+                </div>
+            `;
+        }
+
         document.querySelectorAll('#storeList input[name="store"]').forEach(radio => {
             radio.addEventListener('change', function() {
                 document.querySelectorAll('#storeList .store-item').forEach(item => item.classList.remove('active'));
                 this.closest('.store-item').classList.add('active');
-                const data = stores[this.value];
-                document.getElementById('storeDetail').innerHTML = `
-                    <div class="store-detail">
-                        <h3>📍 ${data.name}</h3>
-                        <p><strong>영업시간</strong> ${data.time}</p>
-                        <p><strong>매장타입</strong> ${data.type}</p>
-                        <p><strong>주차여부</strong> ${data.parking}</p>
-                        <div class="store-map">${data.map}</div>
-                    </div>
-                `;
+                document.getElementById('storeDetail').innerHTML = renderDetail(stores[this.value]);
                 document.getElementById('orderBtn').disabled = false;
             });
         });
 
-        // 포장 주문 버튼
         document.getElementById('orderBtn').addEventListener('click', () => {
             alert('선택한 매장으로 포장 주문을 진행합니다.');
         });
 
-        // 매장명 검색
         document.getElementById('nameSearchBtn').addEventListener('click', () => {
             const keyword = document.getElementById('storeNameInput').value.trim();
             const listEl = document.getElementById('nameStoreList');
@@ -400,7 +394,6 @@
                 return;
             }
 
-            // 간단 검색 시뮬레이션
             const results = Object.entries(stores).filter(([key, s]) => s.name.includes(keyword));
             if (results.length === 0) {
                 msgEl.style.display = 'block';
@@ -427,17 +420,8 @@
                 radio.addEventListener('change', function() {
                     listEl.querySelectorAll('.store-item').forEach(i => i.classList.remove('active'));
                     this.closest('.store-item').classList.add('active');
-                    const data = stores[this.value];
                     detailEl.className = 'store-right';
-                    detailEl.innerHTML = `
-                        <div class="store-detail">
-                            <h3>📍 ${data.name}</h3>
-                            <p><strong>영업시간</strong> ${data.time}</p>
-                            <p><strong>매장타입</strong> ${data.type}</p>
-                            <p><strong>주차여부</strong> ${data.parking}</p>
-                            <div class="store-map">${data.map}</div>
-                        </div>
-                    `;
+                    detailEl.innerHTML = renderDetail(stores[this.value]);
                     orderBtn.disabled = false;
                 });
             });
