@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객센터 | 파파존스</title>
+    <link rel="stylesheet" href="./CSS/main.css?v=20261110-app-refresh">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
+    <script src="./main.js" defer></script>
+    <style>
+        .customer-page { max-width: 1200px; margin: 0 auto; padding: 64px 24px 100px; }
+        .customer-heading { margin-bottom: 34px; padding-bottom: 24px; border-bottom: 1px solid #e5e5e5; }
+        .customer-heading .eyebrow { color: #b51f2b; font-size: 14px; font-weight: 700; letter-spacing: .08em; }
+        .customer-heading h1 { margin: 10px 0; color: #222; font-size: 34px; }
+        .customer-heading p { margin: 0; color: #777; font-size: 15px; }
+        .customer-tabs { display: flex; gap: 0; margin-bottom: 48px; border-bottom: 1px solid #ddd; }
+        .customer-tabs a { min-width: 140px; padding: 16px 22px; color: #666; text-align: center; text-decoration: none; border-bottom: 3px solid transparent; font-weight: 600; }
+        .customer-tabs a:hover, .customer-tabs a:focus { color: #b51f2b; border-bottom-color: #b51f2b; }
+        .customer-section { margin: 0 0 64px; scroll-margin-top: 110px; }
+        .customer-section h2 { margin: 0 0 20px; font-size: 24px; color: #222; }
+        .customer-table { width: 100%; border-collapse: collapse; border-top: 2px solid #333; }
+        .customer-table th, .customer-table td { padding: 17px 16px; border-bottom: 1px solid #e8e8e8; text-align: center; font-size: 14px; }
+        .customer-table th { background: #f8f8f8; color: #444; }
+        .customer-table td.subject { text-align: left; color: #333; }
+        .customer-table td.date { color: #888; white-space: nowrap; }
+        .customer-label { display: inline-block; margin-right: 9px; padding: 4px 8px; border-radius: 3px; background: #f7eeee; color: #b51f2b; font-size: 12px; }
+        .customer-empty { padding: 34px 16px; color: #888; text-align: center; border-bottom: 1px solid #e8e8e8; }
+        .customer-faq { border-top: 2px solid #333; }
+        .customer-faq details { border-bottom: 1px solid #e8e8e8; }
+        .customer-faq summary { position: relative; padding: 20px 48px 20px 18px; color: #333; font-size: 15px; font-weight: 600; cursor: pointer; list-style: none; }
+        .customer-faq summary::-webkit-details-marker { display: none; }
+        .customer-faq summary::after { content: '+'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #b51f2b; font-size: 22px; font-weight: 400; }
+        .customer-faq details[open] summary::after { content: '−'; }
+        .customer-faq .answer { padding: 0 20px 22px 48px; color: #666; font-size: 14px; line-height: 1.8; background: #fafafa; }
+        .customer-contact { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: 42px; padding: 28px 32px; background: #f7f7f7; }
+        .customer-contact h3 { margin: 0 0 8px; font-size: 18px; }
+        .customer-contact p { margin: 0; color: #666; font-size: 14px; line-height: 1.7; }
+        .customer-contact strong { color: #b51f2b; font-size: 24px; white-space: nowrap; }
+        @media (max-width: 700px) {
+            .customer-page { padding: 42px 18px 70px; }
+            .customer-tabs a { min-width: 0; flex: 1; padding: 14px 6px; font-size: 14px; }
+            .customer-table th:first-child, .customer-table td:first-child { display: none; }
+            .customer-table th, .customer-table td { padding: 14px 9px; font-size: 13px; }
+            .customer-heading h1 { font-size: 28px; }
+            .customer-contact { align-items: flex-start; flex-direction: column; padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-util"><div class="top-util-inner"><div class="top-util-right"><a href="#login">로그인</a><span class="divider">|</span><a href="#signup">회원가입</a></div></div></div>
+    <header class="site-header">
+        <a class="brand-logo" href="./index.html">PAPA JOHNS</a>
+        <nav class="main-nav">
+            <div class="nav-item"><a href="./menu.html">메뉴</a><ul class="dropdown">
+                <li><a href="./menu.html">피자</a></li><li><a href="./menu.html">하프앤하프</a></li><li><a href="./menu.html">사이드</a></li><li><a href="./menu.html">음료/소스</a></li><li><a href="./menu.html">굿즈/한정 상품</a></li>
+            </ul></div>
+            <div class="nav-item"><a href="./promotion.html">이벤트·할인</a><ul class="dropdown">
+                <li><a href="./promotion.html">프로모션</a></li><li><a href="./promotion.html">진행중 이벤트</a></li><li><a href="./promotion.html">제휴 할인</a></li><li><a href="./promotion.html">지난 이벤트</a></li><li><a href="./promotion.html">피자 교실</a></li>
+            </ul></div>
+            <div class="nav-item"><a href="#coupon">E-쿠폰주문</a></div>
+            <div class="nav-item"><a href="./store.html">매장찾기</a></div>
+            <div class="nav-item"><a href="./customer.html">고객센터</a><ul class="dropdown">
+                <li><a href="#notice">공지사항</a></li><li><a href="#closure">휴업 안내</a></li><li><a href="#qna">Q&A</a></li>
+            </ul></div>
+            <div class="nav-item"><a href="#company">회사소개</a></div>
+        </nav>
+        <div class="header-tools">
+            <a href="#mypage" title="마이페이지"><span class="material-symbols-outlined">person</span></a>
+            <a href="#language" title="언어 선택"><span class="material-symbols-outlined">language</span></a>
+            <a href="#cart" title="장바구니"><span class="material-symbols-outlined">shopping_cart</span></a>
+        </div>
+        <button class="mobile-menu" type="button"><span></span><span></span><span></span></button>
+    </header>
+
+    <main class="customer-page">
+        <div class="customer-heading">
+            <span class="eyebrow">CUSTOMER SERVICE</span>
+            <h1>고객센터</h1>
+            <p>파파존스 이용에 필요한 안내와 자주 묻는 질문을 확인해 보세요.</p>
+        </div>
+        <nav class="customer-tabs" aria-label="고객센터 메뉴">
+            <a href="#notice">공지사항</a><a href="#closure">휴업 안내</a><a href="#qna">Q&amp;A</a>
+        </nav>
+
+        <section class="customer-section" id="notice">
+            <h2>공지사항</h2>
+            <table class="customer-table">
+                <thead><tr><th>번호</th><th>분류</th><th>제목</th><th>등록일</th></tr></thead>
+                <tbody>
+                    <tr><td>01</td><td>안내</td><td class="subject"><span class="customer-label">공지</span>10월 파파토크 무료 피자 쿠폰 당첨자 발표</td><td class="date">2026.11.12</td></tr>
+                    <tr><td>02</td><td>안내</td><td class="subject">9월 파파토크 무료 피자 쿠폰 당첨자 발표</td><td class="date">2026.11.05</td></tr>
+                    <tr><td>03</td><td>이벤트</td><td class="subject">매직카 스쿨어택 4분기 당첨 학교 발표</td><td class="date">2026.11.04</td></tr>
+                    <tr><td>04</td><td>안내</td><td class="subject">9월 피자교실 당첨자 안내</td><td class="date">2026.10.16</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="customer-section" id="closure">
+            <h2>휴업 안내</h2>
+            <table class="customer-table">
+                <thead><tr><th>번호</th><th>분류</th><th>제목</th><th>등록일</th></tr></thead>
+                <tbody>
+                    <tr><td>01</td><td>매장 안내</td><td class="subject"><span class="customer-label">휴업</span>파파존스 화정점 임시 휴업 안내</td><td class="date">2026.11.19</td></tr>
+                    <tr><td>02</td><td>매장 안내</td><td class="subject">파파존스 인천서구점 임시 휴업 안내</td><td class="date">2026.11.17</td></tr>
+                    <tr><td>03</td><td>매장 안내</td><td class="subject">파파존스 울산무거점 임시 휴업 안내</td><td class="date">2026.11.15</td></tr>
+                    <tr><td>04</td><td>매장 안내</td><td class="subject">파파존스 판교2테크노밸리점 임시 휴업 안내</td><td class="date">2026.11.10</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="customer-section" id="qna">
+            <h2>자주 묻는 질문</h2>
+            <div class="customer-faq">
+                <details><summary>온라인 주문은 어떻게 진행하나요?</summary><div class="answer">홈페이지에서 메뉴를 선택한 후 배달 또는 포장을 선택하고, 매장과 주문 정보를 입력해 결제를 진행해 주세요.</div></details>
+                <details><summary>주문한 내용을 확인하려면 어떻게 해야 하나요?</summary><div class="answer">로그인 후 마이페이지의 이전 주문 내역에서 주문 내용을 확인할 수 있습니다. 비회원 주문은 주문 시 입력한 휴대전화 번호로 확인할 수 있습니다.</div></details>
+                <details><summary>주문 후 메뉴 변경이나 취소가 가능한가요?</summary><div class="answer">주문이 접수된 매장의 제조 진행 상황에 따라 변경이나 취소가 어려울 수 있습니다. 빠른 확인을 위해 온라인 주문 상담센터로 문의해 주세요.</div></details>
+                <details><summary>쿠폰이 주문 화면에 보이지 않아요.</summary><div class="answer">쿠폰마다 사용 조건과 적용 가능한 주문 방식이 다를 수 있습니다. 쿠폰의 유효기간과 사용 조건을 먼저 확인해 주세요.</div></details>
+            </div>
+            <div class="customer-contact">
+                <div><h3>더 궁금한 점이 있으신가요?</h3><p>주문 및 이용 관련 문의는 고객센터로 연락해 주세요.<br>온라인 주문 상담과 일반 고객 문의는 운영 창구가 다를 수 있습니다.</p></div>
+                <strong>1577-8142</strong>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-logo">PAPA JOHNS</div>
+            <div class="footer-info">
+                <p>주소 : 서울시 강남구 압구정로 210 융기빌딩 4층</p>
+                <p>콜센터 주문 : 1577-8080 | 온라인 이용 문의 : 1566-0889 | 고객센터 : 1577-8142</p>
+                <p>대표이사 : 서창우 | 개인정보관리책임자 : 전용관 | 통신판매신고 : 강남11495호 | 사업자등록번호 : 211-87-25621</p>
+            </div>
+            <div class="footer-links"><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">위치기반서비스 이용약관</a><a href="#">고객센터</a></div>
+            <p class="copyright">Copyright © 2020 PAPAJOHNS. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
