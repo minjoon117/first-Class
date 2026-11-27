@@ -299,9 +299,9 @@
                         <p><strong>영업시간</strong> 매일 11:00 ~ 21:30</p>
                         <p><strong>매장타입</strong> 직접 방문</p>
                         <p><strong>주차여부</strong> 주차 불가</p>
-                        <div class="store-map">
-                            <img src="./img/지도.png" alt="매장 지도">
-                        </div>
+                       <div class="store-map">
+                           <img src="./img/지도2.png" alt="매장 지도">
+                       </div>
                     </div>
                 </div>
             </div>
@@ -373,20 +373,19 @@
             }
         };
 
-        function renderDetail(data) {
-            return `
-                <div class="store-detail">
-                    <h3>📍 ${data.name}</h3>
-                    <p><strong>영업시간</strong> ${data.time}</p>
-                    <p><strong>매장타입</strong> ${data.type}</p>
-                    <p><strong>주차여부</strong> ${data.parking}</p>
-                    <div class="store-map">
-                        <img src="./img/지도.png" alt="매장 지도">
-                    </div>
-                </div>
-            `;
-        }
-
+      function renderDetail(data) {
+    return `
+        <div class="store-detail">
+            <h3>📍 ${data.name}</h3>
+            <p><strong>영업시간</strong> ${data.time}</p>
+            <p><strong>매장타입</strong> ${data.type}</p>
+            <p><strong>주차여부</strong> ${data.parking}</p>
+            <div class="store-map">
+                <img src="./img/지도2.png" alt="매장 지도">
+            </div>
+        </div>
+    `;
+}
         document.querySelectorAll('#storeList input[name="store"]').forEach(radio => {
             radio.addEventListener('change', function() {
                 document.querySelectorAll('#storeList .store-item').forEach(item => item.classList.remove('active'));
@@ -450,11 +449,11 @@
             });
         });
 
-        document.getElementById('orderBtnName').addEventListener('click', () => {
-            if (!document.getElementById('orderBtnName').disabled) {
-                alert('선택한 매장으로 포장 주문을 진행합니다.');
-            }
-        });
+      document.getElementById('orderBtnName').addEventListener('click', () => {
+    if (!document.getElementById('orderBtnName').disabled) {
+        alert('선택한 매장으로 포장 주문을 진행합니다.');
+    }
+});
     </script>
 </body>
 </html>
