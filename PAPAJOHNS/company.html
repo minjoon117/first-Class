@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회사소개 | 파파존스</title>
+    <link rel="stylesheet" href="./CSS/main.css?v=20261110-app-refresh">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
+    <script src="./main.js" defer></script>
+    <style>
+        .company-page { max-width: 1200px; margin: 0 auto; padding: 64px 24px 100px; }
+        .company-heading { margin-bottom: 34px; padding-bottom: 24px; border-bottom: 1px solid #e5e5e5; }
+        .company-heading .eyebrow { color: #b51f2b; font-size: 14px; font-weight: 700; letter-spacing: .08em; }
+        .company-heading h1 { margin: 10px 0; color: #222; font-size: 34px; }
+        .company-heading p { margin: 0; color: #777; font-size: 15px; }
+        .company-tabs { display: flex; margin-bottom: 48px; border-bottom: 1px solid #ddd; overflow-x: auto; }
+        .company-tabs a { flex: 1; min-width: 120px; padding: 16px 14px; color: #666; text-align: center; text-decoration: none; white-space: nowrap; border-bottom: 3px solid transparent; font-weight: 600; }
+        .company-tabs a:hover, .company-tabs a:focus { color: #b51f2b; border-bottom-color: #b51f2b; }
+        .company-section { margin-bottom: 76px; scroll-margin-top: 110px; }
+        .company-section h2 { margin: 0 0 18px; color: #222; font-size: 26px; }
+        .company-lead { margin: 0 0 30px; color: #666; font-size: 16px; line-height: 1.85; }
+        .company-hero { padding: 58px 48px; margin-bottom: 58px; color: #fff; background: #a91e2a; border-radius: 12px; }
+        .company-hero .slogan { margin: 0 0 16px; font-size: 13px; font-weight: 700; letter-spacing: .12em; opacity: .85; }
+        .company-hero h2 { margin: 0 0 16px; color: #fff; font-size: 34px; line-height: 1.35; }
+        .company-hero p { max-width: 720px; margin: 0; color: rgba(255,255,255,.9); font-size: 15px; line-height: 1.8; }
+        .company-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .company-value { padding: 24px; border: 1px solid #e8e8e8; border-radius: 9px; background: #fff; }
+        .company-value strong { display: block; margin-bottom: 9px; color: #b51f2b; font-size: 17px; }
+        .company-value span { display: block; margin-bottom: 10px; color: #999; font-size: 12px; }
+        .company-value p { margin: 0; color: #666; font-size: 14px; line-height: 1.7; }
+        .company-quality { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+        .quality-item { padding: 26px 28px; background: #f7f7f7; border-radius: 9px; }
+        .quality-item h3 { margin: 0 0 10px; color: #333; font-size: 18px; }
+        .quality-item p { margin: 0; color: #666; font-size: 14px; line-height: 1.75; }
+        .company-info-list { border-top: 2px solid #333; }
+        .company-info-row { display: flex; gap: 30px; padding: 24px 18px; border-bottom: 1px solid #e8e8e8; }
+        .company-info-row strong { flex: 0 0 150px; color: #333; font-size: 16px; }
+        .company-info-row p { margin: 0; color: #666; font-size: 14px; line-height: 1.8; }
+        .company-callout { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 32px; background: #f7f7f7; border-radius: 9px; }
+        .company-callout h3 { margin: 0 0 8px; font-size: 19px; color: #222; }
+        .company-callout p { margin: 0; color: #777; font-size: 14px; line-height: 1.7; }
+        .company-callout a { display: inline-block; flex: 0 0 auto; padding: 12px 22px; color: #fff; background: #b51f2b; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: 600; }
+        .company-note { margin-top: 18px; color: #999; font-size: 13px; line-height: 1.7; }
+        @media (max-width: 760px) {
+            .company-page { padding: 42px 18px 70px; }
+            .company-heading h1 { font-size: 28px; }
+            .company-hero { padding: 38px 26px; }
+            .company-hero h2 { font-size: 27px; }
+            .company-values { grid-template-columns: repeat(2, 1fr); }
+            .company-quality { grid-template-columns: 1fr; }
+            .company-info-row { display: block; }
+            .company-info-row strong { display: block; margin-bottom: 9px; }
+            .company-callout { align-items: flex-start; flex-direction: column; padding: 24px; }
+        }
+        @media (max-width: 480px) { .company-values { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="top-util"><div class="top-util-inner"><div class="top-util-right"><a href="#login">로그인</a><span class="divider">|</span><a href="#signup">회원가입</a></div></div></div>
+    <header class="site-header">
+        <a class="brand-logo" href="./index.html">PAPA JOHNS</a>
+        <nav class="main-nav">
+            <div class="nav-item"><a href="./menu.html">메뉴</a><ul class="dropdown">
+                <li><a href="./menu.html">피자</a></li><li><a href="./menu.html">하프앤하프</a></li><li><a href="./menu.html">사이드</a></li><li><a href="./menu.html">음료/소스</a></li><li><a href="./menu.html">굿즈/한정 상품</a></li>
+            </ul></div>
+            <div class="nav-item"><a href="./promotion.html">이벤트·할인</a><ul class="dropdown">
+                <li><a href="./promotion.html">프로모션</a></li><li><a href="./promotion.html">진행중 이벤트</a></li><li><a href="./promotion.html">제휴 할인</a></li><li><a href="./promotion.html">지난 이벤트</a></li><li><a href="./promotion.html">피자 교실</a></li>
+            </ul></div>
+            <div class="nav-item"><a href="#coupon">E-쿠폰주문</a></div>
+            <div class="nav-item"><a href="./store.html">매장찾기</a></div>
+            <div class="nav-item"><a href="./customer.html">고객센터</a><ul class="dropdown">
+                <li><a href="./customer.html#notice">공지사항</a></li><li><a href="./customer.html#closure">휴업 안내</a></li><li><a href="./customer.html#qna">Q&amp;A</a></li>
+            </ul></div>
+            <div class="nav-item"><a href="./company.html">회사소개</a><ul class="dropdown">
+                <li><a href="#company-story">파파존스 이야기</a></li><li><a href="#company-pr">홍보관</a></li><li><a href="#company-recruit">채용 안내</a></li><li><a href="#company-franchise">가맹점 모집</a></li>
+            </ul></div>
+        </nav>
+        <div class="header-tools">
+            <a href="#mypage" title="마이페이지"><span class="material-symbols-outlined">person</span></a>
+            <a href="#language" title="언어 선택"><span class="material-symbols-outlined">language</span></a>
+            <a href="#cart" title="장바구니"><span class="material-symbols-outlined">shopping_cart</span></a>
+        </div>
+        <button class="mobile-menu" type="button"><span></span><span></span><span></span></button>
+    </header>
+
+    <main class="company-page">
+        <div class="company-heading">
+            <span class="eyebrow">ABOUT PAPA JOHNS</span>
+            <h1>회사소개</h1>
+            <p>더 좋은 재료, 더 맛있는 피자를 위한 파파존스의 이야기를 소개합니다.</p>
+        </div>
+        <nav class="company-tabs" aria-label="회사소개 메뉴">
+            <a href="#company-story">파파존스 이야기</a>
+            <a href="#company-pr">홍보관</a>
+            <a href="#company-recruit">채용 안내</a>
+            <a href="#company-franchise">가맹점 모집</a>
+        </nav>
+
+        <section class="company-section" id="company-story">
+            <div class="company-hero">
+                <p class="slogan">BETTER INGREDIENTS. BETTER PIZZA.</p>
+                <h2>더 좋은 재료,<br>더 맛있는 피자</h2>
+                <p>파파존스는 1984년 창립 이래 품질을 가장 중요한 가치로 생각합니다. 좋은 재료를 엄선하고 정성을 담아, 고객에게 더 맛있는 피자를 전하기 위해 노력합니다.</p>
+            </div>
+            <h2>파파존스의 핵심 가치</h2>
+            <p class="company-lead">좋은 제품과 서비스를 만들기 위해 파파존스가 중요하게 생각하는 가치입니다.</p>
+            <div class="company-values">
+                <article class="company-value"><strong>책임감</strong><span>ACCOUNTABILITY</span><p>맡은 일을 정해진 시간 안에 책임감 있게 완수합니다.</p></article>
+                <article class="company-value"><strong>초점</strong><span>FOCUS</span><p>제품과 서비스의 기본을 지키고 품질에 집중합니다.</p></article>
+                <article class="company-value"><strong>우수성</strong><span>SUPERIORITY</span><p>제품과 서비스에서 더 나은 결과를 추구합니다.</p></article>
+                <article class="company-value"><strong>인재 제일</strong><span>PEOPLE FIRST</span><p>함께 일하는 구성원을 소중히 여기고 존중합니다.</p></article>
+                <article class="company-value"><strong>지속적 발전</strong><span>CONSTANT IMPROVEMENT</span><p>현재에 만족하지 않고 끊임없이 발전합니다.</p></article>
+                <article class="company-value"><strong>긍정적인 자세</strong><span>ATTITUDE</span><p>긍정적인 마음가짐으로 목표를 향해 나아갑니다.</p></article>
+            </div>
+            <h2 style="margin-top:58px;">좋은 재료를 위한 노력</h2>
+            <p class="company-lead">파파존스는 재료의 품질과 준비 과정에도 세심한 기준을 적용합니다.</p>
+            <div class="company-quality">
+                <article class="quality-item"><h3>72시간 저온 숙성 도우</h3><p>오리지널 수타 도우를 4℃에서 72시간 저온 숙성해 쫄깃한 식감과 풍미를 살립니다.</p></article>
+                <article class="quality-item"><h3>엄선한 토마토 소스</h3><p>잘 익은 캘리포니아 토마토를 수확 후 빠르게 가공해 신선한 맛을 담아냅니다.</p></article>
+                <article class="quality-item"><h3>100% 천연 모짜렐라 치즈</h3><p>최상급 품질의 우유로 만든 천연 모짜렐라 치즈를 사용합니다.</p></article>
+                <article class="quality-item"><h3>매일 준비하는 채소</h3><p>채소는 매일 아침 사용할 양을 손질해 신선하게 준비합니다.</p></article>
+            </div>
+        </section>
+
+        <section class="company-section" id="company-pr">
+            <h2>홍보관</h2>
+            <p class="company-lead">파파존스의 브랜드 소식과 다양한 활동을 소개하는 공간입니다.</p>
+            <div class="company-info-list">
+                <div class="company-info-row"><strong>브랜드 소식</strong><p>새로운 메뉴와 브랜드 캠페인, 고객과 함께하는 다양한 소식을 전합니다.</p></div>
+                <div class="company-info-row"><strong>언론 보도</strong><p>파파존스 관련 보도자료와 언론 소식을 확인할 수 있습니다.</p></div>
+                <div class="company-info-row"><strong>사회공헌 활동</strong><p>나눔과 봉사를 통해 지역사회와 함께하는 파파존스의 활동을 소개합니다.</p></div>
+            </div>
+        </section>
+
+        <section class="company-section" id="company-recruit">
+            <h2>채용 안내</h2>
+            <p class="company-lead">파파존스와 함께 성장하며 더 나은 경험을 만들어갈 인재를 기다립니다.</p>
+            <div class="company-callout">
+                <div><h3>함께 성장할 동료를 찾습니다.</h3><p>채용 분야와 모집 일정은 공고에 따라 달라질 수 있습니다.<br>최신 채용 정보는 공식 채용 공고를 통해 확인해 주세요.</p></div>
+            </div>
+        </section>
+
+        <section class="company-section" id="company-franchise">
+            <h2>가맹점 모집</h2>
+            <p class="company-lead">파파존스와 함께 더 좋은 피자를 전할 가맹 파트너를 모집합니다.</p>
+            <div class="company-info-list">
+                <div class="company-info-row"><strong>브랜드 경쟁력</strong><p>더 좋은 재료와 품질을 중요하게 생각하는 프리미엄 피자 브랜드입니다.</p></div>
+                <div class="company-info-row"><strong>운영 지원</strong><p>매장 운영과 제품 품질을 위한 브랜드 운영 기준을 바탕으로 함께합니다.</p></div>
+                <div class="company-info-row"><strong>가맹 상담</strong><p>가맹 조건과 절차 등 자세한 사항은 본사 가맹 상담을 통해 확인해 주세요.</p></div>
+            </div>
+            <p class="company-note">※ 채용 및 가맹 관련 세부 내용은 실제 모집 공고와 본사 안내를 기준으로 확인해 주세요.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-logo">PAPA JOHNS</div>
+            <div class="footer-info">
+                <p>주소 : 서울시 강남구 압구정로 210 융기빌딩 4층</p>
+                <p>콜센터 주문 : 1577-8080 | 온라인 이용 문의 : 1566-0889 | 고객센터 : 1577-8142</p>
+                <p>대표이사 : 서창우 | 개인정보관리책임자 : 전용관 | 통신판매신고 : 강남11495호 | 사업자등록번호 : 211-87-25621</p>
+            </div>
+            <div class="footer-links"><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">위치기반서비스 이용약관</a><a href="./customer.html">고객센터</a></div>
+            <p class="copyright">Copyright © 2020 PAPAJOHNS. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
