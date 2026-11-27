@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고객후기 | 파파존스</title>
+<link rel="stylesheet" href="./CSS/main.css?v=20261110-app-refresh">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
+<script src="./main.js" defer></script>
+<style>
+.reviews-page{max-width:1200px;margin:0 auto;padding:64px 24px 100px}
+.reviews-heading{padding-bottom:24px;margin-bottom:38px;border-bottom:1px solid #e5e5e5}
+.reviews-heading .eyebrow{color:#b51f2b;font-size:14px;font-weight:700;letter-spacing:.08em}
+.reviews-heading h1{margin:10px 0;color:#222;font-size:34px}
+.reviews-heading p{margin:0;color:#777;font-size:15px}
+.reviews-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.review-entry{padding:26px;border:1px solid #e8e8e8;border-radius:9px;background:#fff}
+.review-entry .stars{margin-bottom:14px;color:#d6a12b;letter-spacing:2px}
+.review-entry p{margin:0 0 16px;color:#555;font-size:15px;line-height:1.8}
+.review-entry strong{color:#333;font-size:14px}
+.reviews-back{display:inline-block;margin-top:30px;padding:11px 20px;background:#b51f2b;color:#fff;text-decoration:none;border-radius:5px;font-size:14px;font-weight:600}
+@media(max-width:700px){.reviews-page{padding:42px 18px 70px}.reviews-heading h1{font-size:28px}.reviews-list{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top-util"><div class="top-util-inner"><div class="top-util-right"><a href="#login">로그인</a><span class="divider">|</span><a href="#signup">회원가입</a></div></div></div>
+<header class="site-header">
+<a class="brand-logo" href="./index.html">PAPA JOHNS</a>
+<nav class="main-nav">
+<div class="nav-item"><a href="./menu.html">메뉴</a><ul class="dropdown"><li><a href="./menu.html">피자</a></li><li><a href="./menu.html">하프앤하프</a></li><li><a href="./menu.html">사이드</a></li><li><a href="./menu.html">음료/소스</a></li><li><a href="./menu.html">굿즈/한정 상품</a></li></ul></div>
+<div class="nav-item"><a href="./promotion.html">이벤트·할인</a><ul class="dropdown"><li><a href="./promotion.html">프로모션</a></li><li><a href="./promotion.html">진행중 이벤트</a></li><li><a href="./promotion.html">제휴 할인</a></li><li><a href="./promotion.html">지난 이벤트</a></li></ul></div>
+<div class="nav-item"><a href="#coupon">E-쿠폰주문</a></div>
+<div class="nav-item"><a href="./store.html">매장찾기</a></div>
+<div class="nav-item"><a href="./customer.html">고객센터</a></div>
+<div class="nav-item"><a href="./company.html">회사소개</a></div>
+</nav>
+<div class="header-tools"><a href="#mypage" title="마이페이지"><span class="material-symbols-outlined">person</span></a><a href="#language" title="언어 선택"><span class="material-symbols-outlined">language</span></a><a href="#cart" title="장바구니"><span class="material-symbols-outlined">shopping_cart</span></a></div>
+<button class="mobile-menu" type="button"><span></span><span></span><span></span></button>
+</header>
+<main class="reviews-page">
+<div class="reviews-heading"><span class="eyebrow">PAPA JOHNS REVIEW</span><h1>고객후기</h1><p>파파존스를 이용한 고객들의 생생한 후기를 확인해 보세요.</p></div>
+<div class="reviews-list">
+<article class="review-entry"><div class="stars">★★★★★</div><p>“항상 맛있고 배달도 빨라요. 가족이 다 좋아합니다!”</p><strong>김*수 님</strong></article>
+<article class="review-entry"><div class="stars">★★★★★</div><p>“하프앤하프 조합이 최고예요. 다음에도 또 시킬게요.”</p><strong>이*영 님</strong></article>
+<article class="review-entry"><div class="stars">★★★★☆</div><p>“사이드 메뉴도 맛있고 피자도 정성스러워요.”</p><strong>박*호 님</strong></article>
+</div>
+<a class="reviews-back" href="./index.html#reviews">메인으로 돌아가기</a>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-logo">PAPA JOHNS</div><div class="footer-info"><p>주소 : 서울시 강남구 압구정로 210 융기빌딩 4층</p><p>콜센터 주문 : 1577-8080 | 온라인 이용 문의 : 1566-0889 | 고객센터 : 1577-8142</p><p>대표이사 : 서창우 | 개인정보관리책임자 : 전용관 | 통신판매신고 : 강남11495호 | 사업자등록번호 : 211-87-25621</p></div><div class="footer-links"><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">위치기반서비스 이용약관</a><a href="./customer.html">고객센터</a></div><p class="copyright">Copyright © 2020 PAPAJOHNS. All rights reserved.</p></div></footer>
+</body>
+</html>
