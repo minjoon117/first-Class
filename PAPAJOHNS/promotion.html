@@ -9,6 +9,8 @@
     <script src="./main.js" defer></script>
     <style>
         .promotion-page { max-width: 1200px; margin: 0 auto; padding: 64px 24px 100px; }
+        .promotion-visual { margin-bottom: 38px; }
+        .promotion-visual img { display: block; width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px; }
         .promotion-heading { margin-bottom: 36px; border-bottom: 1px solid #e5e5e5; padding-bottom: 24px; }
         .promotion-heading .eyebrow { color: #b51f2b; font-size: 14px; font-weight: 700; letter-spacing: .08em; }
         .promotion-heading h1 { margin: 10px 0; font-size: 34px; color: #222; }
@@ -39,7 +41,7 @@
                 <li><a href="./menu.html">피자</a></li><li><a href="./menu.html">하프앤하프</a></li><li><a href="./menu.html">사이드</a></li><li><a href="./menu.html">음료/소스</a></li><li><a href="./menu.html">굿즈/한정 상품</a></li>
             </ul></div>
             <div class="nav-item"><a href="./promotion.html">이벤트·할인</a><ul class="dropdown">
-                <li><a href="./promotion.html">프로모션</a></li><li><a href="https://pji.co.kr/event/ongoing">진행중 이벤트</a></li><li><a href="https://pji.co.kr/event/partner">제휴 할인</a></li><li><a href="https://pji.co.kr/event/past">지난 이벤트</a></li><li><a href="https://pji.co.kr/event/pizzaClass">피자 교실</a></li>
+                <li><a href="./promotion.html">프로모션</a></li><li><a href="#promotion-list">진행중 이벤트</a></li><li><a href="https://pji.co.kr/event/partner">제휴 할인</a></li><li><a href="https://pji.co.kr/event/past">지난 이벤트</a></li><li><a href="https://pji.co.kr/event/pizzaClass">피자 교실</a></li>
             </ul></div>
             <div class="nav-item"><a href="#coupon">E-쿠폰주문</a></div>
             <div class="nav-item"><a href="./store.html">매장찾기</a></div>
@@ -54,31 +56,32 @@
         <button class="mobile-menu" type="button"><span></span><span></span><span></span></button>
     </header>
     <main class="promotion-page">
+        <div class="promotion-visual"><img src="./img/프로모션.png" alt="파파존스 프로모션"></div>
         <div class="promotion-heading">
             <span class="eyebrow">EVENT · SALE</span>
             <h1>프로모션</h1>
             <p>파파존스에서 준비한 다양한 혜택과 특별한 소식을 만나보세요.</p>
         </div>
         <nav class="promotion-tabs" aria-label="이벤트 분류">
-            <a class="active" href="./promotion.html">전체</a>
-            <a href="https://pji.co.kr/event/ongoing/promotion">프로모션</a>
+            <a class="active" href="#promotion-list">전체</a>
+            <a href="#promotion-list">프로모션</a>
             <a href="https://pji.co.kr/event/ongoing">진행중 이벤트</a>
         </nav>
-        <section class="promotion-grid" aria-label="프로모션 목록">
-            <a class="promotion-card" href="https://pji.co.kr/event/ongoing/promotion">
+        <section class="promotion-grid" id="promotion-list" aria-label="프로모션 목록">
+            <article class="promotion-card">
                 <img src="./img/261002_buldak_telecom_main.jpg" alt="불닭 까르보 치킨 통신사 할인 프로모션">
                 <div class="card-copy"><h2>불닭 까르보 치킨 통신사 할인</h2><p>통신사 고객을 위한 특별 할인 혜택</p></div>
-            </a>
-            <a class="promotion-card" href="https://pji.co.kr/event/ongoing/promotion">
+            </article>
+            <article class="promotion-card">
                 <img src="./img/261001_hanapick_last10days_main.jpg" alt="하나카드 LAST 10 DAYS 프로모션">
                 <div class="card-copy"><h2>하나카드 LAST 10 DAYS</h2><p>하나카드와 함께하는 특별한 할인 혜택</p></div>
-            </a>
-            <a class="promotion-card" href="https://pji.co.kr/event/ongoing/promotion">
+            </article>
+            <article class="promotion-card">
                 <img src="./img/261016_twocities_main.jpg" alt="파파존스 문화 이벤트 프로모션">
                 <div class="card-copy"><h2>파파존스 문화 이벤트</h2><p>피자와 함께 즐기는 특별한 경험</p></div>
-            </a>
+            </article>
         </section>
-        <p class="promotion-note">프로모션 상세 내용과 참여 조건은 파파존스 공식 이벤트 페이지에서 확인할 수 있습니다. 각 프로모션의 기간 및 혜택은 변경되거나 조기 종료될 수 있습니다.</p>
+        <p class="promotion-note">프로모션별 자세한 내용과 참여 조건은 각 이벤트 안내를 통해 확인해 주세요.</p>
     </main>
     <footer class="site-footer">
         <div class="footer-inner">
