@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로모션 | 파파존스</title>
+    <link rel="stylesheet" href="./CSS/main.css?v=20261110-app-refresh">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0">
+    <script src="./main.js" defer></script>
+    <style>
+        .promotion-page { max-width: 1200px; margin: 0 auto; padding: 64px 24px 100px; }
+        .promotion-heading { margin-bottom: 36px; border-bottom: 1px solid #e5e5e5; padding-bottom: 24px; }
+        .promotion-heading .eyebrow { color: #b51f2b; font-size: 14px; font-weight: 700; letter-spacing: .08em; }
+        .promotion-heading h1 { margin: 10px 0; font-size: 34px; color: #222; }
+        .promotion-heading p { margin: 0; color: #777; font-size: 15px; }
+        .promotion-tabs { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+        .promotion-tabs a { display: inline-block; padding: 11px 24px; border: 1px solid #ddd; border-radius: 24px; color: #555; text-decoration: none; font-size: 14px; }
+        .promotion-tabs a.active { background: #b51f2b; border-color: #b51f2b; color: #fff; }
+        .promotion-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 22px; }
+        .promotion-card { display: block; color: inherit; text-decoration: none; border: 1px solid #eee; border-radius: 12px; overflow: hidden; background: #fff; transition: transform .2s, box-shadow .2s; }
+        .promotion-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+        .promotion-card img { display: block; width: 100%; aspect-ratio: 1.55 / 1; object-fit: cover; }
+        .promotion-card .card-copy { padding: 18px 18px 20px; }
+        .promotion-card h2 { margin: 0 0 8px; font-size: 18px; color: #222; }
+        .promotion-card p { margin: 0; color: #777; font-size: 14px; line-height: 1.5; }
+        .promotion-note { margin-top: 34px; padding: 18px 20px; background: #f7f7f7; color: #777; font-size: 13px; line-height: 1.7; }
+        @media (max-width: 800px) { .promotion-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } .promotion-page { padding: 42px 18px 70px; } }
+        @media (max-width: 520px) { .promotion-grid { grid-template-columns: 1fr; } .promotion-heading h1 { font-size: 28px; } }
+    </style>
+</head>
+<body>
+    <div class="top-util">
+        <div class="top-util-inner"><div class="top-util-right"><a href="#login">로그인</a><span class="divider">|</span><a href="#signup">회원가입</a></div></div>
+    </div>
+    <header class="site-header">
+        <a class="brand-logo" href="./index.html">PAPA JOHNS</a>
+        <nav class="main-nav">
+            <div class="nav-item"><a href="./menu.html">메뉴</a><ul class="dropdown">
+                <li><a href="./menu.html">피자</a></li><li><a href="./menu.html">하프앤하프</a></li><li><a href="./menu.html">사이드</a></li><li><a href="./menu.html">음료/소스</a></li><li><a href="./menu.html">굿즈/한정 상품</a></li>
+            </ul></div>
+            <div class="nav-item"><a href="./promotion.html">이벤트·할인</a><ul class="dropdown">
+                <li><a href="./promotion.html">프로모션</a></li><li><a href="https://pji.co.kr/event/ongoing">진행중 이벤트</a></li><li><a href="https://pji.co.kr/event/partner">제휴 할인</a></li><li><a href="https://pji.co.kr/event/past">지난 이벤트</a></li><li><a href="https://pji.co.kr/event/pizzaClass">피자 교실</a></li>
+            </ul></div>
+            <div class="nav-item"><a href="#coupon">E-쿠폰주문</a></div>
+            <div class="nav-item"><a href="./store.html">매장찾기</a></div>
+            <div class="nav-item"><a href="#customer">고객센터</a></div>
+            <div class="nav-item"><a href="#company">회사소개</a></div>
+        </nav>
+        <div class="header-tools">
+            <a href="#mypage" title="마이페이지"><span class="material-symbols-outlined">person</span></a>
+            <a href="#language" title="언어 선택"><span class="material-symbols-outlined">language</span></a>
+            <a href="#cart" title="장바구니"><span class="material-symbols-outlined">shopping_cart</span></a>
+        </div>
+        <button class="mobile-menu" type="button"><span></span><span></span><span></span></button>
+    </header>
+    <main class="promotion-page">
+        <div class="promotion-heading">
+            <span class="eyebrow">EVENT · SALE</span>
+            <h1>프로모션</h1>
+            <p>파파존스에서 준비한 다양한 혜택과 특별한 소식을 만나보세요.</p>
+        </div>
+        <nav class="promotion-tabs" aria-label="이벤트 분류">
+            <a class="active" href="./promotion.html">전체</a>
+            <a href="https://pji.co.kr/event/ongoing/promotion">프로모션</a>
+            <a href="https://pji.co.kr/event/ongoing">진행중 이벤트</a>
+        </nav>
+        <section class="promotion-grid" aria-label="프로모션 목록">
+            <a class="promotion-card" href="https://pji.co.kr/event/ongoing/promotion">
+                <img src="./img/261002_buldak_telecom_main.jpg" alt="불닭 까르보 치킨 통신사 할인 프로모션">
+                <div class="card-copy"><h2>불닭 까르보 치킨 통신사 할인</h2><p>통신사 고객을 위한 특별 할인 혜택</p></div>
+            </a>
+            <a class="promotion-card" href="https://pji.co.kr/event/ongoing/promotion">
+                <img src="./img/261001_hanapick_last10days_main.jpg" alt="하나카드 LAST 10 DAYS 프로모션">
+                <div class="card-copy"><h2>하나카드 LAST 10 DAYS</h2><p>하나카드와 함께하는 특별한 할인 혜택</p></div>
+            </a>
+            <a class="promotion-card" href="https://pji.co.kr/event/ongoing/promotion">
+                <img src="./img/261016_twocities_main.jpg" alt="파파존스 문화 이벤트 프로모션">
+                <div class="card-copy"><h2>파파존스 문화 이벤트</h2><p>피자와 함께 즐기는 특별한 경험</p></div>
+            </a>
+        </section>
+        <p class="promotion-note">프로모션 상세 내용과 참여 조건은 파파존스 공식 이벤트 페이지에서 확인할 수 있습니다. 각 프로모션의 기간 및 혜택은 변경되거나 조기 종료될 수 있습니다.</p>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-logo">PAPA JOHNS</div>
+            <div class="footer-info">
+                <p>주소 : 서울시 강남구 압구정로 210 융기빌딩 4층</p>
+                <p>콜센터 주문 : 1577-8080 | 온라인 이용 문의 : 1566-0889 | 고객센터 : 1577-8142</p>
+                <p>대표이사 : 서창우 | 개인정보관리책임자 : 전용관 | 통신판매신고 : 강남11495호 | 사업자등록번호 : 211-87-25621</p>
+            </div>
+            <div class="footer-links"><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">위치기반서비스 이용약관</a><a href="#">고객센터</a></div>
+            <p class="copyright">Copyright © 2020 PAPAJOHNS. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
