@@ -9,15 +9,17 @@
     <script src="./main.js" defer></script>
     <style>
         .promotion-page { max-width: 1200px; margin: 0 auto; padding: 64px 24px 100px; }
-        .promotion-visual { margin-bottom: 38px; }
+        .promotion-visual { display: none; margin-bottom: 38px; }
+        .promotion-visual.is-visible { display: block; }
         .promotion-visual img { display: block; width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px; }
         .promotion-heading { margin-bottom: 36px; border-bottom: 1px solid #e5e5e5; padding-bottom: 24px; }
         .promotion-heading .eyebrow { color: #b51f2b; font-size: 14px; font-weight: 700; letter-spacing: .08em; }
         .promotion-heading h1 { margin: 10px 0; font-size: 34px; color: #222; }
         .promotion-heading p { margin: 0; color: #777; font-size: 15px; }
         .promotion-tabs { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
-        .promotion-tabs a { display: inline-block; padding: 11px 24px; border: 1px solid #ddd; border-radius: 24px; color: #555; text-decoration: none; font-size: 14px; }
-        .promotion-tabs a.active { background: #b51f2b; border-color: #b51f2b; color: #fff; }
+        .promotion-tabs button { display: inline-block; padding: 11px 24px; border: 1px solid #ddd; border-radius: 24px; color: #555; background: #fff; cursor: pointer; font: inherit; font-size: 14px; }
+        .promotion-tabs button.active { background: #b51f2b; border-color: #b51f2b; color: #fff; }
+        .promotion-empty { display: none; grid-column: 1 / -1; padding: 64px 20px; text-align: center; color: #888; border: 1px solid #eee; border-radius: 12px; }
         .promotion-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 22px; }
         .promotion-card { display: block; color: inherit; text-decoration: none; border: 1px solid #eee; border-radius: 12px; overflow: hidden; background: #fff; transition: transform .2s, box-shadow .2s; }
         .promotion-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
@@ -41,7 +43,7 @@
                 <li><a href="./menu.html">피자</a></li><li><a href="./menu.html">하프앤하프</a></li><li><a href="./menu.html">사이드</a></li><li><a href="./menu.html">음료/소스</a></li><li><a href="./menu.html">굿즈/한정 상품</a></li>
             </ul></div>
             <div class="nav-item"><a href="./promotion.html">이벤트·할인</a><ul class="dropdown">
-                <li><a href="./promotion.html">프로모션</a></li><li><a href="#promotion-list">진행중 이벤트</a></li><li><a href="#promotion-list">제휴 할인</a></li><li><a href="#promotion-list">지난 이벤트</a></li><li><a href="#promotion-list">피자 교실</a></li>
+                <li><a href="./promotion.html">프로모션</a></li><li><a href="#tab-ongoing">진행중 이벤트</a></li><li><a href="#tab-partner">제휴 할인</a></li><li><a href="#tab-past">지난 이벤트</a></li><li><a href="#promotion-list">피자 교실</a></li>
             </ul></div>
             <div class="nav-item"><a href="#coupon">E-쿠폰주문</a></div>
             <div class="nav-item"><a href="./store.html">매장찾기</a></div>
@@ -56,32 +58,62 @@
         <button class="mobile-menu" type="button"><span></span><span></span><span></span></button>
     </header>
     <main class="promotion-page">
-        <div class="promotion-visual"><img src="./img/프로모션.png" alt="파파존스 프로모션"></div>
+        <div class="promotion-visual" id="promotion-visual"><img src="./img/프로모션.png" alt="파파존스 프로모션"></div>
         <div class="promotion-heading">
             <span class="eyebrow">EVENT · SALE</span>
             <h1>프로모션</h1>
             <p>파파존스에서 준비한 다양한 혜택과 특별한 소식을 만나보세요.</p>
         </div>
         <nav class="promotion-tabs" aria-label="이벤트 분류">
-            <a class="active" href="#promotion-list">전체</a>
-            <a href="#promotion-list">프로모션</a>
-            <a href="#promotion-list">진행중 이벤트</a>
+            <button class="active" type="button" id="tab-all" data-filter="all" aria-pressed="true">전체</button>
+            <button type="button" id="tab-promotion" data-filter="promotion" aria-pressed="false">프로모션</button>
+            <button type="button" id="tab-ongoing" data-filter="ongoing" aria-pressed="false">진행중 이벤트</button>
+            <button type="button" id="tab-partner" data-filter="partner" aria-pressed="false">제휴 할인</button>
+            <button type="button" id="tab-past" data-filter="past" aria-pressed="false">지난 이벤트</button>
         </nav>
         <section class="promotion-grid" id="promotion-list" aria-label="프로모션 목록">
-            <article class="promotion-card">
+            <article class="promotion-card" data-category="partner">
                 <img src="./img/261002_buldak_telecom_main.jpg" alt="불닭 까르보 치킨 통신사 할인 프로모션">
                 <div class="card-copy"><h2>불닭 까르보 치킨 통신사 할인</h2><p>통신사 고객을 위한 특별 할인 혜택</p></div>
             </article>
-            <article class="promotion-card">
+            <article class="promotion-card" data-category="partner">
                 <img src="./img/261001_hanapick_last10days_main.jpg" alt="하나카드 LAST 10 DAYS 프로모션">
                 <div class="card-copy"><h2>하나카드 LAST 10 DAYS</h2><p>하나카드와 함께하는 특별한 할인 혜택</p></div>
             </article>
-            <article class="promotion-card">
+            <article class="promotion-card" data-category="ongoing">
                 <img src="./img/261016_twocities_main.jpg" alt="파파존스 문화 이벤트 프로모션">
                 <div class="card-copy"><h2>파파존스 문화 이벤트</h2><p>피자와 함께 즐기는 특별한 경험</p></div>
             </article>
+            <p class="promotion-empty" id="promotion-empty">등록된 지난 이벤트가 없습니다.</p>
         </section>
         <p class="promotion-note">프로모션별 자세한 내용과 참여 조건은 각 이벤트 안내를 통해 확인해 주세요.</p>
+        <script>
+            (() => {
+                const tabs = document.querySelectorAll('.promotion-tabs button');
+                const cards = document.querySelectorAll('.promotion-card');
+                const visual = document.getElementById('promotion-visual');
+                const empty = document.getElementById('promotion-empty');
+                const applyFilter = (filter) => {
+                    const validFilter = ['all', 'promotion', 'ongoing', 'partner', 'past'].includes(filter) ? filter : 'all';
+                    tabs.forEach((tab) => {
+                        const active = tab.dataset.filter === validFilter;
+                        tab.classList.toggle('active', active);
+                        tab.setAttribute('aria-pressed', String(active));
+                    });
+                    visual.classList.toggle('is-visible', validFilter === 'promotion');
+                    let visibleCount = 0;
+                    cards.forEach((card) => {
+                        const visible = validFilter === 'all' || card.dataset.category === validFilter;
+                        card.hidden = !visible;
+                        if (visible) visibleCount++;
+                    });
+                    empty.style.display = validFilter === 'past' && visibleCount === 0 ? 'block' : 'none';
+                };
+                tabs.forEach((tab) => tab.addEventListener('click', () => applyFilter(tab.dataset.filter)));
+                const initialTab = document.getElementById(location.hash.slice(1));
+                applyFilter(initialTab?.dataset.filter || 'all');
+            })();
+        </script>
     </main>
     <footer class="site-footer">
         <div class="footer-inner">
